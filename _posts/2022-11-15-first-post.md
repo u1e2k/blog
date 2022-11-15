@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Inception Movie"
-author: john
+title:  "Test post"
+author: u1e2k
 categories: [ Jekyll, tutorial ]
 tags: [red, yellow]
 image: assets/images/11.jpg
