@@ -7,7 +7,7 @@ favicon: 'assets/images/logo.png'
 # baseurl: /mediumish-theme-jekyll
 google_analytics: 'G-L45KVY6N4D'
 disqus: 'demowebsite'
-mailchimp-list: ''
+mailchimp-list: false
 include: ["_pages"]
 permalink: /:title/
 
