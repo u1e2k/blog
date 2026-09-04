@@ -4,22 +4,19 @@
    ======================================== */
 
 .highlight {
-  margin: var(--space-lg) calc(-1 * var(--container-padding));
-  padding: var(--space-lg) var(--container-padding);
-  overflow-x: auto;
+  margin: var(--space-lg) 0;
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
   background-color: var(--color-code-bg);
-  border-radius: 0;
-  border-left: none;
-  border-right: none;
+  overflow-x: auto;
 }
 
 @media (min-width: 768px) {
   .highlight {
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
-    border-radius: var(--radius-lg);
-    margin-top: var(--space-xl);
-    margin-bottom: var(--space-xl);
+    padding: var(--space-lg) var(--container-padding);
   }
 }
 
