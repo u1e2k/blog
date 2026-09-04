@@ -1,13 +1,13 @@
 # Site
-name: "blog"
-title: "Blog"
-description: "Jekyll template, Medium styled, free for bloggers."
+name: "u1e2k blog"
+title: "u1e2k blog"
+description: "ソフトウェアエンジニアの備忘録。Nix、Linux、Web 開発、インフラなど。"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/logo.png'
-# baseurl: /mediumish-theme-jekyll
+url: "https://u1e2k.github.io"
+baseurl: "/blog"
 google_analytics: 'G-L45KVY6N4D'
-disqus: 'demowebsite'
-mailchimp-list: false
+disqus: false
 include: ["_pages"]
 permalink: /:title/
 
@@ -17,10 +17,10 @@ authors:
     name: u1e2k
     display_name: u1e2k
     gravatar: 0
-    email: 
-    web: https://www.wowthemes.net
+    email:
+    web: https://github.com/u1e2k
     twitter: https://twitter.com/u1e2k
-    description: "Author of Mediumish, a Bootstrap Medium styled template available for WordPress, HTML, Ghost and Jekyll. You are currently previewing Jekyll template demo."
+    description: "Software engineer. Nix, Linux, Web, Infrastructure."
 
 # Plugins
 plugins:
@@ -29,35 +29,38 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-archives
-    
+
 # Archives
 jekyll-archives:
   enabled:
     - categories
   layout: archive
   permalinks:
-    category: '/category/:name/'
-    
-# Pagination 
-paginate: 6
-paginate_path: /page:num/
-    
-# Other
-markdown: kramdown
+    category: '/categories/:name/'
 
+# Pagination
+paginate: 8
+paginate_path: "/page:num/"
+
+# Markdown
+markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     block:
       line_numbers: true
+    span:
+      line_numbers: false
 
-# Adsense (change to "enabled" to activate, also your client id and ad slot. Create a new ad unit from your Adsense account to get the slot.)
-#adsense: "disabled"
-#adsense-data-ad-client: "ca-pub-3412143450191416"
-#adsense-data-ad-slot: "1363087678"
-
-# Lazy Images ("enabled" or "disabled")
-lazyimages: "disabled"
-
-exclude: [changelog.md, LICENSE.txt, README.md, Gemfile, Gemfile.lock]
+# Exclude from build
+exclude:
+  - changelog.md
+  - LICENSE.txt
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - .post-template
+  - docker-compose.yml
+  - install.sh
+  - setup.sh

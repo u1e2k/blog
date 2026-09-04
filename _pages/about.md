@@ -1,35 +1,71 @@
 ---
 layout: page
-title: Mediumish Template for Jekyll
-permalink: /about
-comments: true
+title: About
+permalink: /about/
+comments: false
 ---
 
-<div class="row justify-content-between">
-<div class="col-md-8 pr-5">
+<article class="page-content">
+  <header class="page-header">
+    <h1 class="page-title">About</h1>
+    <p class="page-description">このブログについて</p>
+  </header>
 
-<p>This website is built with Jekyll and Mediumish template for Jekyll. It's for demonstration purposes, no real content can be found. Mediumish template for Jekyll is compatible with Github pages, in fact even this demo is created with Github Pages and hosted with Github.</p>
+  <div class="content">
+    <h2>u1e2k のブログ</h2>
 
-<p class="mb-5"><img class="shadow-lg" src="{{site.baseurl}}/assets/images/mediumish-jekyll-template.png" alt="jekyll template mediumish" /></p>
-<h4>Documentation</h4>
+    <p>ソフトウェアエンジニアの備忘録兼実験場です。主に以下のトピックについて書いています。</p>
 
-<p>Please, read the docs <a href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/">here</a>.</p>
+    <ul>
+      <li><strong>開発環境</strong>: Nix Flakes + Home Manager、dotfiles、Neovim、ターミナル周り</li>
+      <li><strong>Linux / Wayland</strong>: Hyprland、Waybar、fcitx5、Arch 系ディストロ</li>
+      <li><strong>Web 開発</strong>: Astro、Bun、TypeScript、静的サイト生成</li>
+      <li><strong>インフラ・ツール</strong>: Docker、GitHub Actions、CI/CD</li>
+    </ul>
 
-<h4>Questions or bug reports?</h4>
+    <h2>現在のスタック</h2>
 
-<p>Head over to our <a href="https://github.com/wowthemesnet/mediumish-theme-jekyll">Github repository</a>!</p>
+    <table>
+      <thead>
+        <tr>
+          <th>カテゴリ</th>
+          <th>ツール・技術</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>OS / 環境管理</td><td>Nix Flakes + Home Manager (CachyOS / Arch)</td></tr>
+        <tr><td>ウィンドウマネージャ</td><td>Hyprland</td></tr>
+        <tr><td>ターミナル</td><td>Kitty</td></tr>
+        <tr><td>シェル</td><td>Fish (interactive) / Bash (scripts)</td></tr>
+        <tr><td>エディタ</td><td>Neovim</td></tr>
+        <tr><td>バージョン管理</td><td>Git + GitHub</td></tr>
+        <tr><td>個人サイト</td><td>Astro + Bun + GitHub Pages</td></tr>
+        <tr><td>このブログ</td><td>Jekyll + GitHub Pages (自作テーマ)</td></tr>
+      </tbody>
+    </table>
 
-</div>
+    <h2>主なリポジトリ</h2>
 
-<div class="col-md-4">
+    <ul>
+      <li><a href="https://github.com/u1e2k/dotfiles" target="_blank" rel="noopener noreferrer">u1e2k/dotfiles</a> — Nix Flakes + Home Manager で管理する dotfiles</li>
+      <li><a href="https://github.com/u1e2k/u1e2k.github.io" target="_blank" rel="noopener noreferrer">u1e2k/u1e2k.github.io</a> — Astro + Bun で作った個人サイト</li>
+      <li><a href="https://github.com/u1e2k/mydocker" target="_blank" rel="noopener noreferrer">u1e2k/mydocker</a> — Docker で Hyprland 動作検証 (実験的)</li>
+      <li><a href="https://github.com/u1e2k/blog" target="_blank" rel="noopener noreferrer">u1e2k/blog</a> — このブログのソース (Jekyll)</li>
+    </ul>
 
-<div class="sticky-top sticky-top-80">
-<h5>Buy me a coffee</h5>
+    <h2>連絡先</h2>
 
-<p>Thank you for your support! Your donation helps me to maintain and improve <a target="_blank" href="https://github.com/wowthemesnet/mediumish-theme-jekyll">Mediumish <i class="fab fa-github"></i></a>.</p>
+    <ul>
+      <li>GitHub: <a href="https://github.com/u1e2k" target="_blank" rel="noopener noreferrer">@u1e2k</a></li>
+      <li>Twitter: <a href="https://twitter.com/u1e2k" target="_blank" rel="noopener noreferrer">@u1e2k</a></li>
+    </ul>
 
-<a target="_blank" href="https://www.wowthemes.net/donate/" class="btn btn-danger">Buy me a coffee</a> <a target="_blank" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/" class="btn btn-warning">Documentation</a>
+    <h2>ライセンス</h2>
 
-</div>
-</div>
-</div>
+    <p>記事の内容は <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>、コードスニペットは <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a> で公開しています。自由に引用・改変してください（クレジット表記をお願いします）。</p>
+
+    <hr>
+
+    <p><small>このサイトは <a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer">Jekyll</a> と自作テーマで構築され、<a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a> でホストされています。ソースコードは <a href="https://github.com/u1e2k/blog" target="_blank" rel="noopener noreferrer">GitHub</a> で公開中です。</small></p>
+  </div>
+</article>

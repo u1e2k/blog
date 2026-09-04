@@ -1,23 +1,102 @@
 ---
 title: "Categories"
 layout: default
-permalink: "/categories.html"
+permalink: "/categories/"
 ---
 
-<div class="row listrecent">
-{% for category in site.categories %}
-<div class="section-title col-md-12 mt-4">
-<h2 id="{{ category[0] | replace: " ","-" }}">Category <span class="text-capitalize">{{ category[0] }}</span></h2>
-</div>
-{% assign pages_list = category[1] %}
-{% for post in pages_list %}
-{% if post.title != null %}
-{% if group == null or group == post.group %}
-{% include postbox.html %}
-{% endif %}
-{% endif %}
-{% endfor %}
-{% assign pages_list = nil %}
-{% assign group = nil %}
-{% endfor %}
-</div>
+<article class="page-content">
+  <header class="page-header">
+    <h1 class="page-title">カテゴリ</h1>
+    <p class="page-description">記事をカテゴリで探す</p>
+  </header>
+
+  <div class="content">
+    {% for category in site.categories %}
+    <section class="category-section" id="{{ category[0] | slugify }}" aria-labelledby="cat-{{ category[0] | slugify }}">
+      <h2 id="cat-{{ category[0] | slugify }}" class="category-title">
+        <a class="category-anchor" href="#{{ category[0] | slugify }}" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><line x1="19" y1="5" x2="19" y2="19"></line><polyline points="5 17 11 11 5 5"></polyline></svg>
+        </a>
+        <span>{{ category[0] }}</span>
+        <span class="category-count">({{ category[1].size }})</span>
+      </h2>
+      <div class="post-list">
+        {% assign pages_list = category[1] %}
+        {% for post in pages_list %}
+        {% if post.title %}
+        <article class="post-card">
+          <div class="post-card-header">
+            <time class="post-card-date" datetime="{{ post.date | date_to_xmlschema }}">
+              {{ post.date | date: "%Y年%-m月%-d日" }}
+            </time>
+            {% if post.categories %}
+            <div class="post-card-categories">
+              {% assign sortedCategories = post.categories | sort %}
+              {% for cat in sortedCategories limit: 2 %}
+              <a class="post-card-category" href="{{ site.baseurl }}/categories#{{ cat | slugify }}" rel="category tag">
+                {{ cat }}
+              </a>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+          <h3 class="post-card-title">
+            <a href="{{ site.baseurl }}{{ post.url }}" rel="bookmark">{{ post.title }}</a>
+          </h3>
+          {% if post.description %}
+          <p class="post-card-excerpt">{{ post.description }}</p>
+          {% else %}
+          <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+          {% endif %}
+        </article>
+        {% endif %}
+        {% endfor %}
+        {% assign pages_list = nil %}
+      </div>
+    </section>
+    {% endfor %}
+
+    {% if site.categories.size == 0 %}
+    <p class="empty-state">まだカテゴリがありません。</p>
+    {% endif %}
+  </div>
+</article>
+
+<style>
+.category-section {
+  margin-bottom: var(--space-2xl);
+}
+
+.category-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--font-size-2xl);
+}
+
+.category-anchor {
+  opacity: 0;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.category-title:hover .category-anchor {
+  opacity: 1;
+}
+
+.category-count {
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--space-3xl);
+  color: var(--color-text-muted);
+}
+</style>

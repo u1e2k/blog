@@ -1,0 +1,161 @@
+/* ========================================
+   Design Tokens (CSS Custom Properties)
+   ======================================== */
+
+:root {
+  /* --- Colors: Light Mode (default) --- */
+  --color-bg: #ffffff;
+  --color-bg-muted: #f5f5f5;
+  --color-bg-card: #ffffff;
+  --color-text: #1a1a2e;
+  --color-text-muted: #6b6b7b;
+  --color-heading: #111122;
+  --color-border: #e0e0e5;
+  --color-border-light: #ececf0;
+
+  --color-accent: #0066cc;
+  --color-accent-hover: #0052a3;
+  --color-accent-light: #e8f0fe;
+  --color-accent-text: #ffffff;
+
+  --color-link: #0066cc;
+  --color-link-hover: #004499;
+
+  --color-code-bg: #1e1e2e;
+  --color-code-text: #d4d4d4;
+
+  --color-focus: #0066cc;
+
+  /* --- Fonts --- */
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-heading: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* --- Font Sizes --- */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 2rem;      /* 32px */
+  --font-size-4xl: 2.5rem;    /* 40px */
+
+  /* --- Spacing --- */
+  --space-xs: 0.25rem;  /* 4px */
+  --space-sm: 0.5rem;   /* 8px */
+  --space-md: 1rem;     /* 16px */
+  --space-lg: 1.5rem;   /* 24px */
+  --space-xl: 2rem;     /* 32px */
+  --space-2xl: 3rem;    /* 48px */
+  --space-3xl: 4rem;    /* 64px */
+
+  /* --- Layout --- */
+  --container-max: 720px;
+  --container-padding: var(--space-lg);
+  --header-height: 64px;
+
+  /* --- Border Radius --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* --- Line Heights --- */
+  --line-height-base: 1.7;
+  --line-height-tight: 1.3;
+  --line-height-code: 1.6;
+
+  /* --- Transitions --- */
+  --transition-fast: 0.1s ease;
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.3s ease;
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+  /* --- Z-index --- */
+  --z-header: 100;
+  --z-dropdown: 200;
+  --z-modal: 300;
+}
+
+/* --- Dark Mode --- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0d0d12;
+    --color-bg-muted: #1a1a24;
+    --color-bg-card: #14141c;
+    --color-text: #e8e8ed;
+    --color-text-muted: #9a9ab0;
+    --color-heading: #ffffff;
+    --color-border: #2d2d3a;
+    --color-border-light: #3d3d4a;
+
+    --color-accent: #4d8fff;
+    --color-accent-hover: #7aa3ff;
+    --color-accent-light: #1a2a4a;
+    --color-accent-text: #0d0d12;
+
+    --color-link: #4d8fff;
+    --color-link-hover: #7aa3ff;
+
+    --color-code-bg: #0a0a12;
+    --color-code-text: #e0e0e8;
+
+    --color-focus: #4d8fff;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* --- Manual dark mode class (for toggle) --- */
+[data-theme="dark"] {
+  --color-bg: #0d0d12;
+  --color-bg-muted: #1a1a24;
+  --color-bg-card: #14141c;
+  --color-text: #e8e8ed;
+  --color-text-muted: #9a9ab0;
+  --color-heading: #ffffff;
+  --color-border: #2d2d3a;
+  --color-border-light: #3d3d4a;
+  --color-accent: #4d8fff;
+  --color-accent-hover: #7aa3ff;
+  --color-accent-light: #1a2a4a;
+  --color-accent-text: #0d0d12;
+  --color-link: #4d8fff;
+  --color-link-hover: #7aa3ff;
+  --color-code-bg: #0a0a12;
+  --color-code-text: #e0e0e8;
+  --color-focus: #4d8fff;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="light"] {
+  --color-bg: #ffffff;
+  --color-bg-muted: #f5f5f5;
+  --color-bg-card: #ffffff;
+  --color-text: #1a1a2e;
+  --color-text-muted: #6b6b7b;
+  --color-heading: #111122;
+  --color-border: #e0e0e5;
+  --color-border-light: #ececf0;
+  --color-accent: #0066cc;
+  --color-accent-hover: #0052a3;
+  --color-accent-light: #e8f0fe;
+  --color-accent-text: #ffffff;
+  --color-link: #0066cc;
+  --color-link-hover: #004499;
+  --color-code-bg: #1e1e2e;
+  --color-code-text: #d4d4d4;
+  --color-focus: #0066cc;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+}

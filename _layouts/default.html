@@ -1,195 +1,199 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja" data-theme="auto">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d0d12" media="(prefers-color-scheme: dark)">
 
-<link rel="icon" href="{{ site.baseurl }}/assets/images/logo.png">
+  <title>{{ page.title | escape }} | {{ site.name | escape }}</title>
+  <meta name="description" content="{{ page.description | default: site.description | escape }}">
 
-<title>{{ page.title }} | {{site.name}}</title>
+  {% seo %}
 
-{% seo %}
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.baseurl }}/feed.xml">
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
-<link href="{{ site.baseurl }}/assets/css/screen.css" rel="stylesheet">
+  <link rel="icon" href="{{ site.baseurl }}/assets/images/logo.png">
+  <link rel="apple-touch-icon" href="{{ site.baseurl }}/assets/images/logo.png">
 
-<link href="{{ site.baseurl }}/assets/css/main.css" rel="stylesheet">
+  {% if jekyll.environment == 'production' %}
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics }}');
+  </script>
+  {% endif %}
 
-<script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
-
+  <!-- Theme detection script (runs before body to prevent flash) -->
+  <script>
+    (function() {
+      var theme = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var root = document.documentElement;
+      
+      if (theme === 'dark' || (!theme && prefersDark)) {
+        root.setAttribute('data-theme', 'dark');
+      } else {
+        root.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
 </head>
+<body>
+  <a href="#main-content" class="skip-link">本文へスキップ</a>
 
-{% if jekyll.environment == 'production' %}
-<!-- change your GA id in _config.yml -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L45KVY6N4D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <h1 class="site-title">
+        <a href="{{ site.baseurl }}/" rel="home">
+          {% if site.logo %}
+            <img src="{{ site.baseurl }}/{{ site.logo }}" alt="" width="30" height="30" style="vertical-align: middle; margin-right: 8px;">
+          {% endif %}
+          {{ site.name }}
+        </a>
+      </h1>
 
-  gtag('config', '{{site.google_analytics}}');
-</script>
+      <nav class="site-nav" role="navigation" aria-label="メインナビゲーション">
+        <a class="nav-link {% if page.url == '/' %}active{% endif %}" href="{{ site.baseurl }}/">記事一覧</a>
+        <a class="nav-link {% if page.url contains '/about' %}active{% endif %}" href="{{ site.baseurl }}/about/">About</a>
+        {% include search-lunr.html %}
+      </nav>
 
-{% endif %}
+      <button class="theme-toggle" id="theme-toggle" aria-label="ダークモード切り替え" type="button">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
 
-
-{% capture layout %}{% if page.layout %}layout-{{ page.layout }}{% endif %}{% endcapture %}
-<body class="{{layout}}">
-	<!-- defer loading of font and font awesome -->
-	<noscript id="deferred-styles">
-		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-	</noscript>
-
-
-<!-- Begin Menu Navigation
-================================================== -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
-
-    <div class="container pr-0">
-
-    <!-- Begin Logo -->
-    <a class="navbar-brand" href="{{ site.baseurl }}/">
-    <img src="{{ site.baseurl }}/{{ site.logo }}" alt="{{ site.name }}">
-    </a>
-    <!-- End Logo -->
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarMediumish">
-
-        <!-- Begin Menu -->
-
-            <ul class="navbar-nav ml-auto">
-
-                {% if page.url == "/" %}
-                <li class="nav-item active">
-                {% else %}
-                <li class="nav-item">
-                {% endif %}
-                <a class="nav-link" href="{{ site.baseurl }}/index.html">Blog</a>
-                </li>
-
-                <li class="nav-item">
-                <a class="nav-link" href="{{ site.baseurl }}/about">About</a>
-                </li>
-
-                {% include search-lunr.html %}
-
-            </ul>
-
-        <!-- End Menu -->
-
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="メニューを開く" aria-expanded="false" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" aria-hidden="true">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
     </div>
+  </header>
 
-    </div>
-</nav>
-<!-- End Navigation
-================================================== -->
-
-<div class="site-content">
-
-<div class="container">
-
-<!-- Site Title
-================================================== -->
-<div class="mainheading">
-    <h1 class="sitetitle">{{ site.name }}</h1>
-    <p class="lead">
-        {{ site.description }}
-    </p>
-</div>
-
-<!-- Content
-================================================== -->
-<div class="main-content">
-    {{ content }}
-</div>
-
-{% if site.mailchimp-list %}
-<!-- Bottom Alert Bar
-================================================== -->
-<div class="alertbar">
-	<div class="container text-center">
-		<span><img src="{{ site.baseurl }}/{{ site.logo }}" alt="{{site.title}}"> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
-        <form action="{{site.mailchimp-list}}" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
-            <div class="mc-field-group">
-            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="heart">
-            </div>
-        </form>
-	</div>
-</div>
-{% endif %}
-    
-</div>
-
-<!-- Categories Jumbotron
-================================================== -->
-<div class="jumbotron fortags">
-	<div class="d-md-flex h-100">
-		<div class="col-md-4 transpdark align-self-center text-center h-100">
-            <div class="d-md-flex align-items-center justify-content-center h-100">
-                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
-            </div>
-		</div>
-		<div class="col-md-8 p-5 align-self-center text-center">
-            {% assign categories_list = site.categories %}
-            {% if categories_list.first[0] == null %}
-                {% for category in categories_list %}
-                    <a class="mt-1 mb-1" href="{{site.baseurl}}/categories#{{ category | url_escape | strip | replace: ' ', '-' }}">{{ category | camelcase }} ({{ site.tags[category].size }})</a>
-                {% endfor %}
-            {% else %}
-                {% for category in categories_list %}
-                    <a class="mt-1 mb-1" href="{{site.baseurl}}/categories#{{ category[0] | url_escape | strip | replace: ' ', '-' }}">{{ category[0] | camelcase }} ({{ category[1].size }})</a>
-                {% endfor %}
-            {% endif %}
-            {% assign categories_list = nil %}
-		</div>
-	</div>
-</div>
-
-<!-- Begin Footer
-================================================== -->
-<footer class="footer">
+  <main class="site-main" id="main-content" role="main">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-6 text-center text-lg-left">
-                Copyright © {{ site.time | date: "%Y" }} {{ site.name }} 
-            </div>
-            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
-                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
-            </div>
-        </div>
+      {{ content }}
     </div>
-</footer>
-<!-- End Footer
-================================================== -->
+  </main>
 
-</div> <!-- /.site-content -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <p class="footer-copyright">
+        &copy; {{ site.time | date: "%Y" }} {{ site.name }}
+      </p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/u1e2k" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://twitter.com/u1e2k" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+        <li><a href="{{ site.baseurl }}/feed.xml" class="footer-rss" aria-label="RSS フィード">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 11a9 9 0 0 1 9 9"></path>
+            <path d="M4 4a16 16 0 0 1 16 16"></path>
+            <circle cx="5" cy="19" r="1"></circle>
+          </svg>
+          RSS
+        </a></li>
+      </ul>
+    </div>
+  </footer>
 
-<!-- Scripts
-================================================== -->
+  <script>
+    // Theme toggle functionality
+    (function() {
+      var toggle = document.getElementById('theme-toggle');
+      var root = document.documentElement;
+      var sunIcon = toggle.querySelector('.icon-sun');
+      var moonIcon = toggle.querySelector('.icon-moon');
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+      function updateIcons(theme) {
+        if (theme === 'dark') {
+          sunIcon.style.display = 'block';
+          moonIcon.style.display = 'none';
+        } else {
+          sunIcon.style.display = 'none';
+          moonIcon.style.display = 'block';
+        }
+      }
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+      // Initialize
+      var currentTheme = root.getAttribute('data-theme');
+      updateIcons(currentTheme);
 
-<script src="{{ site.baseurl }}/assets/js/mediumish.js"></script>
+      toggle.addEventListener('click', function() {
+        var newTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateIcons(newTheme);
+      });
 
-{% if site.lazyimages == "enabled" %}
-<script src="{{ site.baseurl }}/assets/js/lazyload.js"></script>
-{% endif %}
+      // Listen for system preference changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        if (!localStorage.getItem('theme')) {
+          var newTheme = e.matches ? 'dark' : 'light';
+          root.setAttribute('data-theme', newTheme);
+          updateIcons(newTheme);
+        }
+      });
+    })();
 
-<script src="{{ site.baseurl }}/assets/js/ie10-viewport-bug-workaround.js"></script> 
+    // Mobile menu toggle
+    (function() {
+      var btn = document.getElementById('mobile-menu-btn');
+      var nav = document.querySelector('.site-nav');
+      
+      if (btn && nav) {
+        btn.addEventListener('click', function() {
+          var isOpen = nav.classList.toggle('open');
+          btn.setAttribute('aria-expanded', isOpen);
+          btn.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+        });
+      }
+    })();
+  </script>
 
-{% if page.layout == 'post' %}
-<!-- <script id="dsq-count-scr" src="//{{site.disqus}}.disqus.com/count.js"></script> -->
-{% endif %}
+  <style>
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: var(--space-sm) var(--space-md);
+      background: var(--color-accent);
+      color: var(--color-accent-text);
+      border-radius: var(--radius-md);
+      z-index: 1000;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .skip-link:focus {
+      top: var(--space-md);
+    }
 
+    /* Theme toggle icons */
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    [data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+  </style>
 </body>
 </html>

@@ -5,57 +5,114 @@ title: Home
 
 {% if page.url == "/" %}
 
-<!-- Featured
-================================================== -->
-<section class="featured-posts">
-    <div class="section-title">
-        <h2><span>Featured</span></h2>
-    </div>
-    <div class="row">
-
-    {% for post in site.posts %}
-
-        {% if post.featured == true %}
-
-            {% include featuredbox.html %}
-
+<!-- Featured Posts -->
+{% assign featured_posts = site.posts | where: "featured", true | limit: 3 %}
+{% if featured_posts.size > 0 %}
+<section class="featured-posts" aria-labelledby="featured-heading">
+  <header class="page-header">
+    <h2 id="featured-heading" class="page-title">注目記事</h2>
+  </header>
+  <div class="post-list">
+    {% for post in featured_posts %}
+    <article class="post-card">
+      <div class="post-card-header">
+        <time class="post-card-date" datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%Y年%-m月%-d日" }}
+        </time>
+        {% if post.categories %}
+        <div class="post-card-categories">
+          {% assign sortedCategories = post.categories | sort %}
+          {% for category in sortedCategories limit: 2 %}
+          <a class="post-card-category" href="{{ site.baseurl }}/categories#{{ category | slugify }}" rel="category tag">
+            {{ category }}
+          </a>
+          {% endfor %}
+        </div>
         {% endif %}
+      </div>
+      <h2 class="post-card-title">
+        <a href="{{ site.baseurl }}{{ post.url }}" rel="bookmark">{{ post.title }}</a>
+      </h2>
+      {% if post.description %}
+      <p class="post-card-excerpt">{{ post.description }}</p>
+      {% else %}
+      <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
 
+<!-- All Posts -->
+<section class="recent-posts" aria-labelledby="posts-heading">
+  <header class="page-header">
+    <h2 id="posts-heading" class="page-title">すべての記事</h2>
+  </header>
+  <div class="post-list">
+    {% for post in paginator.posts %}
+    <article class="post-card">
+      <div class="post-card-header">
+        <time class="post-card-date" datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%Y年%-m月%-d日" }}
+        </time>
+        {% if post.categories %}
+        <div class="post-card-categories">
+          {% assign sortedCategories = post.categories | sort %}
+          {% for category in sortedCategories limit: 2 %}
+          <a class="post-card-category" href="{{ site.baseurl }}/categories#{{ category | slugify }}" rel="category tag">
+            {{ category }}
+          </a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <h2 class="post-card-title">
+        <a href="{{ site.baseurl }}{{ post.url }}" rel="bookmark">{{ post.title }}</a>
+      </h2>
+      {% if post.description %}
+      <p class="post-card-excerpt">{{ post.description }}</p>
+      {% else %}
+      <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+
+  <!-- Pagination -->
+  {% if paginator.total_pages > 1 %}
+  <nav class="pagination" aria-label="ページネーション">
+    {% if paginator.previous_page %}
+    <a class="pagination-link" href="{{ site.baseurl }}{{ paginator.previous_page_path }}" rel="prev" aria-label="前のページ">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </a>
+    {% else %}
+    <span class="pagination-span ellipsis" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </span>
+    {% endif %}
+
+    {% for page_num in (1..paginator.total_pages) %}
+      {% if page_num == paginator.page %}
+      <span class="pagination-span current" aria-current="page">{{ page_num }}</span>
+      {% elsif page_num == 1 or page_num == paginator.total_pages or (page_num >= paginator.page - 1 and page_num <= paginator.page + 1) %}
+      <a class="pagination-link" href="{{ site.baseurl }}{{ paginator_page_path | replace: ':num', page_num }}" aria-label="ページ {{ page_num }}">{{ page_num }}</a>
+      {% elsif page_num == paginator.page - 2 or page_num == paginator.page + 2 %}
+      <span class="pagination-span ellipsis" aria-hidden="true">…</span>
+      {% endif %}
     {% endfor %}
 
-    </div>
+    {% if paginator.next_page %}
+    <a class="pagination-link" href="{{ site.baseurl }}{{ paginator.next_page_path }}" rel="next" aria-label="次のページ">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </a>
+    {% else %}
+    <span class="pagination-span ellipsis" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </span>
+    {% endif %}
+  </nav>
+  {% endif %}
 </section>
 
 {% endif %}
-
-<!-- Posts Index
-================================================== -->
-<section class="recent-posts">
-
-    <div class="section-title">
-
-        <h2><span>All Stories</span></h2>
-
-    </div>
-
-    <div class="row listrecent">
-
-        {% for post in paginator.posts %}
-
-        {% include postbox.html %}
-
-        {% endfor %}
-
-    </div>
-
-</section>
-
-<!-- Pagination
-================================================== -->
-<div class="bottompagination">
-<div class="pointerup"><i class="fa fa-caret-up"></i></div>
-<span class="navigation" role="navigation">
-    {% include pagination.html %}
-</span>
-</div>
-

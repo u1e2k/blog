@@ -3,13 +3,17 @@
 # Change this file for any custom CSS.
 ---
 
-/* We need to add display:inline in order to align the '>>' of the 'read more' link */
-.post-excerpt p {
-	display:inline;
-}
+// Design tokens (must come first)
+@import "variables";
 
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-	"syntax",
-    "starsnonscss"
-;
+// Reset & base
+@import "reset";
+
+// Layout components
+@import "header";
+@import "layout";
+@import "post";
+@import "footer";
+
+// Syntax highlighting
+@import "syntax";

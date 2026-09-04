@@ -1,21 +1,90 @@
-<script src="{{site.baseurl}}/assets/js/lunr.js"></script>
-
-
-<style>
-    .lunrsearchresult .title {color: #d9230f;}
-    .lunrsearchresult .url {color: silver;}
-    .lunrsearchresult a {display: block; color: #777;}
-    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
-    .lunrsearchresult a:hover .title {text-decoration: underline;}
-</style>
-
-
-<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
-    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
-</form>
-
-<div id="lunrsearchresults">
-    <ul></ul>
+<!-- Search placeholder - replace with your preferred search solution -->
+<!-- Options: Algolia DocSearch, Pagefind, or simple client-side search -->
+<div class="search-placeholder" style="display: none;">
+  <form action="https://duckduckgo.com/" method="get" target="_blank" rel="noopener noreferrer" role="search" aria-label="サイト内検索">
+    <input type="hidden" name="sites" value="{{ site.url | replace: 'https://', '' | replace: 'http://', '' }}">
+    <label for="site-search" class="visually-hidden">サイト内検索</label>
+    <input type="search" id="site-search" name="q" placeholder="検索..." aria-label="検索キーワード">
+    <button type="submit" aria-label="検索実行">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    </button>
+  </form>
 </div>
 
-<script src="{{site.baseurl}}/assets/js/lunrsearchengine.js"></script>
+<style>
+.search-placeholder {
+  position: relative;
+}
+
+.search-placeholder form {
+  display: flex;
+  align-items: center;
+}
+
+.search-placeholder input[type="search"] {
+  width: 180px;
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--font-size-sm);
+  font-family: inherit;
+  color: var(--color-text);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.search-placeholder input[type="search"]:focus {
+  outline: none;
+  width: 240px;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-light);
+}
+
+.search-placeholder button {
+  margin-left: var(--space-xs);
+  padding: var(--space-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  background: none;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.search-placeholder button:hover {
+  color: var(--color-accent);
+  background-color: var(--color-accent-light);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .search-placeholder {
+    order: 3;
+    width: 100%;
+    margin-top: var(--space-sm);
+  }
+  .search-placeholder form {
+    width: 100%;
+  }
+  .search-placeholder input[type="search"] {
+    width: 100%;
+  }
+  .search-placeholder input[type="search"]:focus {
+    width: 100%;
+  }
+}
+</style>
