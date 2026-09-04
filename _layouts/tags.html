@@ -30,6 +30,10 @@ permalink: "/tags/"
             <time class="post-card-date" datetime="{{ post.date | date_to_xmlschema }}">
               {{ post.date | date: "%Y年%-m月%-d日" }}
             </time>
+            {% assign post_age = site.time | date: "%s" | minus: post.date | date: "%s" | divided_by: 86400 %}
+            {% if post_age < 14 %}
+            <span class="post-card-badge new" aria-label="新着">NEW</span>
+            {% endif %}
             {% if post.categories %}
             <div class="post-card-categories">
               {% assign sortedCategories = post.categories | sort %}
