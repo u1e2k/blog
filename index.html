@@ -4,6 +4,7 @@ title: Home
 ---
 
 {% if page.url == "/" %}
+{% assign now_timestamp = site.time | date: "%s" %}
 
 <!-- Featured Posts -->
 {% assign featured_posts = site.posts | where: "featured", true | limit: 3 %}
@@ -19,7 +20,8 @@ title: Home
         <time class="post-card-date" datetime="{{ post.date | date_to_xmlschema }}">
           {{ post.date | date: "%Y年%-m月%-d日" }}
         </time>
-        {% assign post_age = site.time | date: "%s" | minus: post.date | date: "%s" | divided_by: 86400 %}
+        {% assign post_timestamp = post.date | date: "%s" %}
+        {% assign post_age = now_timestamp | minus: post_timestamp | divided_by: 86400 %}
         {% if post_age < 14 %}
         <span class="post-card-badge new" aria-label="新着">NEW</span>
         {% endif %}
@@ -60,7 +62,8 @@ title: Home
         <time class="post-card-date" datetime="{{ post.date | date_to_xmlschema }}">
           {{ post.date | date: "%Y年%-m月%-d日" }}
         </time>
-        {% assign post_age = site.time | date: "%s" | minus: post.date | date: "%s" | divided_by: 86400 %}
+        {% assign post_timestamp = post.date | date: "%s" %}
+        {% assign post_age = now_timestamp | minus: post_timestamp | divided_by: 86400 %}
         {% if post_age < 14 %}
         <span class="post-card-badge new" aria-label="新着">NEW</span>
         {% endif %}
@@ -103,8 +106,10 @@ title: Home
     {% for page_num in (1..paginator.total_pages) %}
       {% if page_num == paginator.page %}
       <span class="pagination-span current" aria-current="page">{{ page_num }}</span>
-      {% elsif page_num == 1 or page_num == paginator.total_pages or (page_num >= paginator.page - 1 and page_num <= paginator.page + 1) %}
-      <a class="pagination-link" href="{{ site.baseurl }}{{ paginator_page_path | replace: ':num', page_num }}" aria-label="ページ {{ page_num }}">{{ page_num }}</a>
+      {% elsif page_num == 1 %}
+      <a class="pagination-link" href="{{ site.baseurl }}/" aria-label="ページ 1">1</a>
+      {% elsif page_num == paginator.total_pages or (page_num >= paginator.page - 1 and page_num <= paginator.page + 1) %}
+      <a class="pagination-link" href="{{ site.baseurl }}{{ site.paginate_path | replace: ':num', page_num }}" aria-label="ページ {{ page_num }}">{{ page_num }}</a>
       {% elsif page_num == paginator.page - 2 or page_num == paginator.page + 2 %}
       <span class="pagination-span ellipsis" aria-hidden="true">…</span>
       {% endif %}

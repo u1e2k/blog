@@ -11,6 +11,7 @@ permalink: "/tags/"
   </header>
 
   <div class="content">
+    {% assign now_timestamp = site.time | date: "%s" %}
     {% assign sorted_tags = site.tags | sort %}
     {% for tag in sorted_tags %}
     <section class="tag-section" id="{{ tag[0] | slugify }}" aria-labelledby="tag-{{ tag[0] | slugify }}">
@@ -30,7 +31,8 @@ permalink: "/tags/"
             <time class="post-card-date" datetime="{{ post.date | date_to_xmlschema }}">
               {{ post.date | date: "%Y年%-m月%-d日" }}
             </time>
-            {% assign post_age = site.time | date: "%s" | minus: post.date | date: "%s" | divided_by: 86400 %}
+            {% assign post_timestamp = post.date | date: "%s" %}
+            {% assign post_age = now_timestamp | minus: post_timestamp | divided_by: 86400 %}
             {% if post_age < 14 %}
             <span class="post-card-badge new" aria-label="新着">NEW</span>
             {% endif %}

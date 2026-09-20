@@ -55,6 +55,11 @@ kramdown:
 
 # Exclude from build
 exclude:
+  - .jekyll-cache
+  - .bundle
+  - vendor
+  - .github
+  - site
   - changelog.md
   - LICENSE.txt
   - README.md

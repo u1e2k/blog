@@ -11,6 +11,7 @@ permalink: "/categories/"
   </header>
 
   <div class="content">
+    {% assign now_timestamp = site.time | date: "%s" %}
     {% for category in site.categories %}
     <section class="category-section" id="{{ category[0] | slugify }}" aria-labelledby="cat-{{ category[0] | slugify }}">
       <h2 id="cat-{{ category[0] | slugify }}" class="category-title">
@@ -29,7 +30,8 @@ permalink: "/categories/"
             <time class="post-card-date" datetime="{{ post.date | date_to_xmlschema }}">
               {{ post.date | date: "%Y年%-m月%-d日" }}
             </time>
-            {% assign post_age = site.time | date: "%s" | minus: post.date | date: "%s" | divided_by: 86400 %}
+            {% assign post_timestamp = post.date | date: "%s" %}
+            {% assign post_age = now_timestamp | minus: post_timestamp | divided_by: 86400 %}
             {% if post_age < 14 %}
             <span class="post-card-badge new" aria-label="新着">NEW</span>
             {% endif %}
