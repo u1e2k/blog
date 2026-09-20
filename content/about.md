@@ -15,7 +15,7 @@ hideMeta: true
 日常のメイン母艦環境は **Windows 11 Pro** を基盤とし、その上で AI エージェントや Hyper-V 仮想環境を徹底的に組み込んでいます：
 - **メイン作業基盤**: **Windows 11 Pro** をホストとし、GUI / ターミナル / エージェント環境をシームレスに統合。
 - **プロダクト開発**: **Gemini** で構想・アーキテクチャの壁打ちを行い、プロンプトを練り上げてから **Antigravity**（AI Coding Assistant）に実装してもらう協調開発フローを実践。
-- **日常運用・環境保守**: **Hermes Agent** を活用して Obsidian のノート更新を任せたり、Hyper-V 仮想マシン上の **CachyOS** にて **Neovim** や **WezTerm** の設定変更・チューニングをエージェントに自律実行させるなど、日常のツールチェーン全体をエージェントとともに運用。
+- **日常運用・ナレッジ保守**: 日々の技術検証や思考メモのメイン保存先は **Obsidian** に集約。**Hermes Agent** を連携させてノートの自動更新を任せたり、Hyper-V 仮想マシン上の **CachyOS** にて **Neovim** や **WezTerm** の設定変更・チューニングをエージェントに自律実行させるなど、ツールチェーン全体をエージェントとともに運用。
 
 ---
 
@@ -23,9 +23,10 @@ hideMeta: true
 
 ### 🖥️ メインホスト & デスクトップ環境 (Windows 11 Pro)
 - **母艦 OS**: **Windows 11 Pro**（日常のメイン作業基盤）
+- **ナレッジ管理 & メインドキュメント保存庫**: **Obsidian**（日々の思考、検証記録、技術ドキュメントの主たる集約先）
 - **クライアント仮想化**: **Hyper-V** 上で **CachyOS** をゲスト運用し、高速な Linux 開発環境を常設
 - **エディタ & ターミナル**: **Neovim**、**WezTerm**、Kitty、Fish (interactive) / Bash (scripts)
-- **自律型エージェント保守**: **Hermes Agent** を活用し、Obsidian のノート自動更新や CachyOS 内の Neovim / WezTerm 設定の自律変更・チューニングを委任
+- **自律型エージェント保守**: **Hermes Agent** を活用し、Obsidian ノートの自動更新や CachyOS 内の Neovim / WezTerm 設定の自律変更・チューニングを委任
 - **環境の宣言的管理**: Nix Flakes + Home Manager、dotfiles
 
 ### 🖧 自宅サーバー & クラスタインフラ (Proxmox VE)
