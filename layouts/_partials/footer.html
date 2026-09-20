@@ -136,6 +136,20 @@
         } else {
             codeblock.parentNode.appendChild(copybutton);
         }
+
+        // Add language badge if detected
+        let lang = codeblock.getAttribute('data-lang') || '';
+        if (!lang && codeblock.className) {
+            const match = codeblock.className.match(/language-([a-zA-Z0-9_\-\+]+)/);
+            if (match) lang = match[1];
+        }
+        if (lang) {
+            const langBadge = document.createElement('span');
+            langBadge.classList.add('code-lang-badge');
+            langBadge.textContent = lang;
+            const targetBox = container.classList.contains("highlight") ? container : codeblock.parentNode;
+            targetBox.appendChild(langBadge);
+        }
     });
 </script>
 {{- end }}

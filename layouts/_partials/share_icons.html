@@ -1,0 +1,55 @@
+{{- $pageurl := .Permalink }}
+{{- $title := .Title }}
+
+<div class="share-box">
+  <span class="share-box-title">この記事をシェアする</span>
+  <ul class="share-buttons-custom">
+    <!-- X (Twitter) -->
+    <li>
+      <a class="share-btn share-btn-x" target="_blank" rel="noopener noreferrer" aria-label="Xでシェア" title="Xでシェア"
+         href="https://x.com/intent/tweet?text={{ $title | urlquery }}&amp;url={{ $pageurl | urlquery }}">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 23.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        <span>ポスト</span>
+      </a>
+    </li>
+
+    <!-- はてなブックマーク -->
+    <li>
+      <a class="share-btn share-btn-hatena" target="_blank" rel="noopener noreferrer" aria-label="はてなブックマークに追加" title="はてなブックマークに追加"
+         href="https://b.hatena.ne.jp/entry/s/{{ replaceRE "^https?://" "" $pageurl }}">
+        <span class="hatena-b">B!</span>
+        <span>はてな</span>
+      </a>
+    </li>
+
+    <!-- URL コピー -->
+    <li>
+      <button type="button" class="share-btn share-btn-copy" onclick="copyShareUrl(this)" aria-label="URLをコピー" title="URLをコピー">
+        <svg class="copy-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+        <span class="copy-text">URLコピー</span>
+      </button>
+    </li>
+  </ul>
+</div>
+
+<script>
+function copyShareUrl(btn) {
+  const url = window.location.href;
+  const copyText = btn.querySelector('.copy-text');
+  navigator.clipboard.writeText(url).then(() => {
+    btn.classList.add('copied');
+    if (copyText) copyText.textContent = 'コピー完了!';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      if (copyText) copyText.textContent = 'URLコピー';
+    }, 2200);
+  }).catch(() => {
+    prompt('URLをコピーしてください:', url);
+  });
+}
+</script>

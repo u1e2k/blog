@@ -1,0 +1,30 @@
+{{- $scratch := newScratch }}
+
+{{- if not .Date.IsZero -}}
+    {{- $dateFormat := site.Params.DateFormat | default "2006-01-02" }}
+    {{- $dateFormatted := .Date.Format $dateFormat }}
+    {{- $dateHtml := printf "<span title='%s'>公開: %s</span>" (.Date) $dateFormatted }}
+    {{- if and (not .Lastmod.IsZero) (ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}
+        {{- $lastmodFormatted := .Lastmod.Format $dateFormat }}
+        {{- $dateHtml = printf "%s&nbsp;·&nbsp;<span title='%s'>更新: %s</span>" $dateHtml (.Lastmod) $lastmodFormatted }}
+    {{- end }}
+    {{- $scratch.Add "meta" (slice $dateHtml) }}
+{{- end }}
+
+{{- if (.Param "ShowReadingTime") -}}
+    {{- $scratch.Add "meta" (slice (printf "<span>%s</span>" (i18n "read_time" .ReadingTime | default (printf "%d 分" .ReadingTime)))) }}
+{{- end }}
+
+{{- if (.Param "ShowWordCount") -}}
+    {{- $scratch.Add "meta" (slice (printf "<span>%s</span>" (i18n "words" .WordCount | default (printf "%d 文字" .WordCount)))) }}
+{{- end }}
+
+{{- if not (.Param "hideAuthor") -}}
+    {{- with (partial "author.html" .) }}
+        {{- $scratch.Add "meta" (slice (printf "<span>%s</span>" .)) }}
+    {{- end }}
+{{- end }}
+
+{{- with ($scratch.Get "meta") }}
+    {{- delimit . "&nbsp;·&nbsp;" | safeHTML -}}
+{{- end -}}

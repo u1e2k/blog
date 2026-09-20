@@ -1,0 +1,40 @@
+{{- $related := site.RegularPages.Related . | first 3 }}
+{{- if lt (len $related) 3 }}
+  {{- $currPermalink := .Permalink }}
+  {{- $candidates := where (where site.RegularPages "Type" "in" site.Params.mainSections) "Permalink" "ne" $currPermalink }}
+  {{- range $candidates }}
+    {{- if and (lt (len $related) 3) (not (in $related .)) }}
+      {{- $related = $related | append . }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- with $related }}
+<div class="related-posts">
+  <div class="related-posts-header">
+    <span class="related-posts-icon">📚</span>
+    <h3 class="related-posts-title">こちらの記事もおすすめ</h3>
+  </div>
+  <div class="related-posts-grid">
+    {{- range . }}
+    <a class="related-card" href="{{ .RelPermalink }}">
+      <div class="related-card-cover">
+        {{- if .Params.cover.image }}
+        <img src="{{ .Params.cover.image | absURL }}" alt="{{ .Title }}" loading="lazy">
+        {{- else }}
+        <div class="related-card-placeholder">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" opacity="0.3">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
+          </svg>
+        </div>
+        {{- end }}
+      </div>
+      <div class="related-card-body">
+        <span class="related-card-date">{{ .Date.Format "2006-01-02" }}</span>
+        <h4 class="related-card-title">{{ .Title }}</h4>
+      </div>
+    </a>
+    {{- end }}
+  </div>
+</div>
+{{- end }}
