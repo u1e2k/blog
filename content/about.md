@@ -61,6 +61,14 @@ hideMeta: true
 | **Ruby / Rails** | Web アプリケーション学習・個人開発 | Ruby on Rails, Jekyll |
 | **Nix / Shell (Bash, Fish)** | 宣言的システム構築、dotfiles、インフラ自動化 | NixOS, Nix Flakes, Home Manager |
 
+### 🎮 お気に入りのガジェット (Favorite Gadgets)
+
+| デバイス | 特徴・お気に入りポイント |
+| :--- | :--- |
+| **RG rotate** | 画面回転ギミックを備えた携帯端末。縦型画面特化の自作ツール（`rotatehome` など）やゲームの動作確認で愛用 |
+| **RGB30** | 1:1 アスペクト比（720x720）の正方形ディスプレイが魅力の携帯機。PICO-8 や自作 2D ゲームの検証・プレイに最適 |
+| **TRIMUI MODEL S** | クレジットカードサイズの超小型・極薄携帯ゲーム機。いつでもポケットに入れて持ち運べる極小ハードウェア |
+
 ---
 
 ## 🌟 主なプロジェクト・制作物
