@@ -34,6 +34,7 @@ hideMeta: true
 - **ネットワーク & プロキシ**: **Nginx Proxy Manager**、**Tailscale**（セキュアなメッシュ VPN 連携）、Proxmox SDN（ゾーン分離・仮想ネットワーク）
 - **LXC コンテナ運用**: Prometheus、Grafana、NPM、ゲーム専用サーバー（Project Zomboid など）
 - **仮想マシン (QEMU VM)**: Windows Server 2025 評価・検証環境など
+- **電源保護 & UPS 監視**: OMRON BY50S ✕ Raspberry Pi Zero (NUT) ✕ Prometheus / Grafana / Discord 停電発報 & Proxmox 安全停止連動
 
 ### 🤖 開発スタイル & アプリケーション制作
 - **AI ペアプログラミング**: **Gemini** (構想・アーキテクチャ壁打ち・プロンプト生成) ✕ **Antigravity** (実装・テスト・ペアプロ)
