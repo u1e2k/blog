@@ -21,26 +21,24 @@ hideMeta: true
 
 ## 🛠️ 現在の主な技術スタック
 
-### 仮想化・インフラ・ホームラボ
-- **メインホスト OS**: **Windows 11 Pro**（メイン作業・母艦基盤）
-- **自宅サーバークラスタ**: **Proxmox VE** 複数ノードクラスタ（`pve1`, `pve2` / HPE ProLiant Micro TM200 等）
-- **可観測性 & モニタリング**: **Prometheus** ✕ **Grafana** によるメトリクス収集・ダッシュボード可視化
+### 🖥️ メインホスト & デスクトップ環境 (Windows 11 Pro)
+- **母艦 OS**: **Windows 11 Pro**（日常のメイン作業基盤）
+- **クライアント仮想化**: **Hyper-V** 上で **CachyOS** をゲスト運用し、高速な Linux 開発環境を常設
+- **エディタ & ターミナル**: **Neovim**、**WezTerm**、Kitty、Fish (interactive) / Bash (scripts)
+- **自律型エージェント保守**: **Hermes Agent** を活用し、Obsidian のノート自動更新や CachyOS 内の Neovim / WezTerm 設定の自律変更・チューニングを委任
+- **環境の宣言的管理**: Nix Flakes + Home Manager、dotfiles
+
+### 🖧 自宅サーバー & クラスタインフラ (Proxmox VE)
+- **クラスタ基盤**: **Proxmox VE 9.2** 複数ノードクラスタ（`pve1`, `pve2` / HPE ProLiant Micro TM200 等）
+- **可観測性 & モニタリング**: **Prometheus** ✕ **Grafana** によるクラスタメトリクス収集・ダッシュボード可視化
 - **ネットワーク & プロキシ**: **Nginx Proxy Manager**、**Tailscale**（セキュアなメッシュ VPN 連携）、Proxmox SDN（ゾーン分離・仮想ネットワーク）
-- **コンテナ & VM 運用**:
-  - 各種専用 **LXC コンテナ**（Prometheus, Grafana, NPM, Project Zomboid などのゲーム専用サーバー）
-  - **QEMU VM**（Windows Server 2025 評価・検証など）
-  - **クライアント仮想化**: Hyper-V（CachyOS 開発環境運用）、Docker
-- **Linux ディストロ & 宣言的管理**: CachyOS、NixOS、Arch Linux、Nix Flakes + Home Manager、dotfiles
+- **LXC コンテナ運用**: Prometheus、Grafana、NPM、ゲーム専用サーバー（Project Zomboid など）
+- **仮想マシン (QEMU VM)**: Windows Server 2025 評価・検証環境など
 
-### AI ＆ エージェント活用
-- **AI ペアプログラミング**: Gemini (設計・壁打ち・プロンプト生成) ✕ Antigravity (実装)
-- **自律型エージェント**: Hermes Agent (Obsidian 記事・ノート更新、CachyOS 上の Neovim / WezTerm 設定保守)
-- **AI / 機械学習**: LLM 活用、RAG（検索拡張生成）システム検証
-
-### 開発・ツール
-- **ゲーム開発**: Godot Engine 4 (GDScript) による 2D ゲーム制作
-- **エディタ / ターミナル**: Neovim、WezTerm、Kitty、Fish (interactive) / Bash (scripts)
-- **言語**: Go、TypeScript、Python、Shell
+### 🤖 開発スタイル & アプリケーション制作
+- **AI ペアプログラミング**: **Gemini** (構想・アーキテクチャ壁打ち・プロンプト生成) ✕ **Antigravity** (実装・テスト・ペアプロ)
+- **ゲーム制作**: **Godot Engine 4** (GDScript) による 2D ゲーム開発
+- **開発言語**: Go、TypeScript、Python、Shell
 - **このブログ**: Hugo (PaperMod) + GitHub Pages
 
 ---
