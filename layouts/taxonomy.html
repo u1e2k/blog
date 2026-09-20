@@ -1,27 +1,129 @@
 {{- define "main" }}
 
-{{- if .Title }}
-<header class="page-header">
-    <h1>{{ .Title }}</h1>
-    {{- if .Description }}
-    <div class="post-description">
-        {{ .Description }}
+{{- $type := .Type }}
+{{- $isCategories := eq $type "categories" }}
+{{- $terms := .Data.Terms.ByCount }}
+
+{{- $iconMap := dict 
+    "devlog" "⚡"
+    "obsidian" "💎"
+    "tools" "🛠️"
+    "plugin" "🧩"
+    "dotfiles" "💻"
+    "linux" "🐧"
+    "web-dev" "🌐"
+    "jekyll" "🧪"
+    "tutorial" "📚"
+    "go" "🐹"
+    "git" "🌿"
+}}
+
+<div class="taxonomy-container">
+  <header class="taxonomy-header">
+    <div class="taxonomy-title-wrap">
+      <span class="taxonomy-header-icon">{{ if $isCategories }}📁{{ else }}🏷️{{ end }}</span>
+      <div>
+        <h1 class="taxonomy-title">{{ .Title }}</h1>
+        <p class="taxonomy-subtitle">
+          {{- if $isCategories }}
+            技術スタックや開発プロジェクトのトピック別に記事を探せます
+          {{- else }}
+            キーワードや使用ツール、関連技術のタグから記事を探せます
+          {{- end }}
+        </p>
+      </div>
     </div>
-    {{- end }}
-</header>
-{{- end }}
 
-<ul class="terms-tags">
-    {{- $type := .Type }}
-        {{- range $key, $value := .Data.Terms.Alphabetical }}
-            {{- $name := .Name }}
-            {{- $count := .Count }}
-            {{- with site.GetPage (printf "/%s/%s" $type $name) }}
-            <li>
-                <a href="{{ .RelPermalink }}">{{ .LinkTitle }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
+    <!-- Quick Switcher Tabs -->
+    <div class="taxonomy-tabs">
+      <a href="{{ "/categories/" | relURL }}" class="taxonomy-tab{{ if $isCategories }} active{{ end }}">
+        <span class="tab-icon">📁</span>
+        <span>Categories</span>
+        <span class="tab-badge">{{ len site.Taxonomies.categories }}</span>
+      </a>
+      <a href="{{ "/tags/" | relURL }}" class="taxonomy-tab{{ if not $isCategories }} active{{ end }}">
+        <span class="tab-icon">🏷️</span>
+        <span>Tags</span>
+        <span class="tab-badge">{{ len site.Taxonomies.tags }}</span>
+      </a>
+    </div>
+  </header>
+
+  {{- if $isCategories }}
+  <!-- Categories Card Grid -->
+  <div class="category-cards-grid">
+    {{- range $term := $terms }}
+      {{- $name := $term.Name }}
+      {{- $count := $term.Count }}
+      {{- $catKey := $name | lower }}
+      {{- $icon := index $iconMap $catKey | default "📂" }}
+      {{- $termPage := or .Page (site.GetPage (printf "/%s/%s" $type $name)) (site.GetPage (printf "/%s/%s" $type ($name | urlize))) }}
+      {{- $termLink := printf "/%s/%s/" $type ($name | urlize) | relURL }}
+      {{- $termTitle := $name }}
+      {{- $termPages := slice }}
+      {{- with $termPage }}
+        {{- $termLink = .RelPermalink }}
+        {{- $termTitle = .LinkTitle | default $name }}
+        {{- $termPages = .Pages }}
+      {{- end }}
+
+      <div class="category-card">
+        <a class="category-card-overlay" href="{{ $termLink }}" aria-label="{{ $termTitle }}"></a>
+        <div class="category-card-header">
+          <div class="category-icon-box">
+            <span>{{ $icon }}</span>
+          </div>
+          <div class="category-meta">
+            <h2 class="category-card-title">{{ $termTitle }}</h2>
+            <span class="category-count-badge">{{ $count }} 記事</span>
+          </div>
+        </div>
+
+        {{- if gt (len $termPages) 0 }}
+        <div class="category-card-preview">
+          <div class="category-preview-label">最近の記事</div>
+          <ul class="category-preview-list">
+            {{- range first 2 $termPages }}
+            <li class="category-preview-item">
+              <span class="preview-bullet">›</span>
+              <span class="preview-text">{{ .Title }}</span>
             </li>
+            {{- end }}
+          </ul>
+        </div>
         {{- end }}
-    {{- end }}
-</ul>
 
-{{- end }}{{/* end main */ -}}
+        <div class="category-card-footer">
+          <span class="category-explore-link">記事一覧を見る <span class="arrow">→</span></span>
+        </div>
+      </div>
+    {{- end }}
+  </div>
+
+  {{- else }}
+  <!-- Tags Cloud & Cards -->
+  <div class="tags-wall-container">
+    <div class="tags-wall">
+      {{- range $term := $terms }}
+        {{- $name := $term.Name }}
+        {{- $count := $term.Count }}
+        {{- $termPage := or .Page (site.GetPage (printf "/%s/%s" $type $name)) (site.GetPage (printf "/%s/%s" $type ($name | urlize))) }}
+        {{- $termLink := printf "/%s/%s/" $type ($name | urlize) | relURL }}
+        {{- $termTitle := $name }}
+        {{- with $termPage }}
+          {{- $termLink = .RelPermalink }}
+          {{- $termTitle = .LinkTitle | default $name }}
+        {{- end }}
+
+        <a href="{{ $termLink }}" class="tag-chip{{ if ge $count 3 }} tag-chip-popular{{ end }}">
+          <span class="tag-hash">#</span>
+          <span class="tag-name">{{ $termTitle }}</span>
+          <span class="tag-count">{{ $count }}</span>
+        </a>
+      {{- end }}
+    </div>
+  </div>
+  {{- end }}
+</div>
+
+{{- end }}
