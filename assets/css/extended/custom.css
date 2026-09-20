@@ -261,6 +261,38 @@ body {
   gap: 8px;
 }
 
+/* Pagination Spacing & Polish */
+.page-footer {
+  margin-top: 40px;
+  margin-bottom: 24px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+}
+
+.pagination a {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 38px;
+  padding: 0 20px;
+  border-radius: 9999px;
+  background: var(--entry);
+  color: var(--primary);
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pagination a:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+}
+
 /* Single Post Polish */
 .post-single {
   max-width: 820px;
