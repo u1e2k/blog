@@ -13,7 +13,7 @@ summary: "このブログについて"
   <div class="content">
     <h2>u1e2k のブログ</h2>
 
-    <p>ソフトウェアエンジニアの備忘録兼実験場です。主に以下のトピックについて書いています。</p>
+    <p>インフラエンジニアの備忘録兼実験場です。主に以下のトピックについて書いています。</p>
 
     <ul>
       <li><strong>開発環境</strong>: Nix Flakes + Home Manager、dotfiles、Neovim、ターミナル周り</li>
@@ -39,7 +39,7 @@ summary: "このブログについて"
         <tr><td>エディタ</td><td>Neovim</td></tr>
         <tr><td>バージョン管理</td><td>Git + GitHub</td></tr>
         <tr><td>個人サイト</td><td>Astro + Bun + GitHub Pages</td></tr>
-        <tr><td>このブログ</td><td>Jekyll + GitHub Pages (自作テーマ)</td></tr>
+        <tr><td>このブログ</td><td>Hugo + GitHub Pages (PaperMod)</td></tr>
       </tbody>
     </table>
 
@@ -49,7 +49,7 @@ summary: "このブログについて"
       <li><a href="https://github.com/u1e2k/dotfiles" target="_blank" rel="noopener noreferrer">u1e2k/dotfiles</a> — Nix Flakes + Home Manager で管理する dotfiles</li>
       <li><a href="https://github.com/u1e2k/u1e2k.github.io" target="_blank" rel="noopener noreferrer">u1e2k/u1e2k.github.io</a> — Astro + Bun で作った個人サイト</li>
       <li><a href="https://github.com/u1e2k/mydocker" target="_blank" rel="noopener noreferrer">u1e2k/mydocker</a> — Docker で Hyprland 動作検証 (実験的)</li>
-      <li><a href="https://github.com/u1e2k/blog" target="_blank" rel="noopener noreferrer">u1e2k/blog</a> — このブログのソース (Jekyll)</li>
+      <li><a href="https://github.com/u1e2k/blog" target="_blank" rel="noopener noreferrer">u1e2k/blog</a> — このブログのソース (Hugo)</li>
     </ul>
 
     <h2>連絡先</h2>
@@ -65,6 +65,6 @@ summary: "このブログについて"
 
     <hr>
 
-    <p><small>このサイトは <a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer">Jekyll</a> と自作テーマで構築され、<a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a> でホストされています。ソースコードは <a href="https://github.com/u1e2k/blog" target="_blank" rel="noopener noreferrer">GitHub</a> で公開中です。</small></p>
+    <p><small>このサイトは <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> と <a href="https://github.com/adityatelange/hugo-PaperMod" target="_blank" rel="noopener noreferrer">PaperMod</a> で構築され、<a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a> でホストされています。ソースコードは <a href="https://github.com/u1e2k/blog" target="_blank" rel="noopener noreferrer">GitHub</a> で公開中です。</small></p>
   </div>
 </article>

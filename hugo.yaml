@@ -35,7 +35,7 @@ params:
   env: production
   newPostDays: 30
   title: "u1e2k blog"
-  description: "ソフトウェアエンジニアの備忘録。Nix、Linux、Web 開発、インフラなど。"
+  description: "インフラエンジニアの備忘録。Linux、Nix、インフラ、コンテナなど。"
   author: "u1e2k"
   defaultTheme: auto
   ShowReadingTime: true
@@ -54,7 +54,7 @@ params:
 
   homeInfoParams:
     Title: "u1e2k blog"
-    Content: "ソフトウェアエンジニアの備忘録。Nix、Linux、Web 開発、インフラなど。"
+    Content: "インフラエンジニアの備忘録。Linux、Nix、インフラ、コンテナなど。"
 
   cover:
     responsiveImages: true
