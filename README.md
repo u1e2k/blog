@@ -1,5 +1,7 @@
 # u1e2k blog
 
+🔗 [https://u1e2k.github.io/blog/](https://u1e2k.github.io/blog/)
+
 Jekyll + GitHub Pages で構築された個人ブログ。自作ミニマルテーマ（Bootstrap/jQuery/Font Awesome 非依存、ダークモード対応）。
 
 ## 🚀 クイックスタート
