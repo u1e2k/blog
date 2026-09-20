@@ -5,6 +5,12 @@ locale: "ja-jp"
 defaultContentLanguage: "ja"
 paginate: 8
 
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
 permalinks:
   posts: /:slug/
 
@@ -40,6 +46,11 @@ params:
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
 
+  label:
+    text: "u1e2k blog"
+    icon: "/blog/assets/images/logo.png"
+    iconHeight: 28
+
   homeInfoParams:
     Title: "u1e2k blog"
     Content: "ソフトウェアエンジニアの備忘録。Nix、Linux、Web 開発、インフラなど。"
@@ -74,7 +85,15 @@ menu:
       name: Tags
       url: /tags/
       weight: 30
+    - identifier: archives
+      name: Archive
+      url: /archives/
+      weight: 40
+    - identifier: search
+      name: 検索
+      url: /search/
+      weight: 50
     - identifier: about
       name: About
       url: /about/
-      weight: 40
+      weight: 60
