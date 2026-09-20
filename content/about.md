@@ -11,21 +11,30 @@ hideMeta: true
 フリーランスのインフラエンジニアおよびダンスイベントのメディアオペレーターとして活動しています。  
 「**世の中をもっと便利に、面白くする**」をモットーに、自宅小型サーバー・ネットワークの構築運用から、日々の課題を自動化・効率化する自作ツール開発、Godot Engine によるゲーム制作まで幅広く取り組んでいます。
 
-直近の制作・開発スタイルは、**「Gemini でアイデアやアーキテクチャの壁打ちを行い、プロンプトを練り上げてから Antigravity（AI Coding Assistant）に実装してもらう」** という AI 協調開発フローをフル活用して高速にアウトプットしています。
+### AI & エージェント駆動のライフスタイル
+制作・開発や日々の環境運用に AI エージェントを徹底的に組み込んでいます：
+- **プロダクト開発**: **Gemini** で構想・アーキテクチャの壁打ちを行い、プロンプトを練り上げてから **Antigravity**（AI Coding Assistant）に実装してもらう協調開発フローを実践。
+- **日常運用・環境保守**: **Hermes Agent** を活用して Obsidian のノート更新を任せたり、Hyper-V 仮想環境上の **CachyOS** にて **Neovim** や **WezTerm** の設定変更・チューニングをエージェントに自律実行させるなど、日常のツールチェーン全体をエージェントとともに運用しています。
 
 ---
 
 ## 🛠️ 現在の主な技術スタック
 
-### インフラ・仮想化・サーバー
+### 仮想化・インフラ・OS
 - **自宅・小型サーバー**: HPE ProLiant Micro TM200 / Proxmox VE (LXC コンテナ運用)
-- **環境構築 / 宣言的管理**: NixOS、Nix Flakes + Home Manager、dotfiles
-- **コンテナ・OS**: Docker、Arch Linux、Ubuntu、Linux 全般
+- **仮想化**: Hyper-V、Docker
+- **OS / ディストロ**: NixOS、CachyOS、Arch Linux、Ubuntu、Linux 全般
+- **環境構築 / 宣言的管理**: Nix Flakes + Home Manager、dotfiles
 
-### 開発・プログラミング
+### AI ＆ エージェント活用
+- **AI ペアプログラミング**: Gemini (設計・壁打ち・プロンプト生成) ✕ Antigravity (実装)
+- **自律型エージェント**: Hermes Agent (Obsidian 記事・ノート更新、CachyOS 上の Neovim / WezTerm 設定保守)
+- **AI / 機械学習**: LLM 活用、RAG（検索拡張生成）システム検証
+
+### 開発・ツール
 - **ゲーム開発**: Godot Engine 4 (GDScript) による 2D ゲーム制作
-- **言語 / ツール**: Go、TypeScript、Python、Shell (Bash / Fish)、Neovim、Kitty
-- **AI 協調開発**: Gemini (構想・壁打ち・プロンプト設計) ✕ Antigravity (実装・ペアプログラミング)、LLM / RAG 活用
+- **エディタ / ターミナル**: Neovim、WezTerm、Kitty、Fish (interactive) / Bash (scripts)
+- **言語**: Go、TypeScript、Python、Shell
 - **このブログ**: Hugo (PaperMod) + GitHub Pages
 
 ---
