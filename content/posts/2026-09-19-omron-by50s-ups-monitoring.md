@@ -33,7 +33,7 @@ description: "OMRON BY50S 小型UPSをRaspberry Pi Zero・NUT経由でPrometheus
          │
 [ OMRON BY50S (UPS) ]
          │ (USB接続)
-[ Raspberry Pi Zero (ARMv6) ] ── (192.168.0.18)
+[ Raspberry Pi Zero (ARMv6) ]
     ├── NUT Driver (blazer_usb)
     ├── upsd (Port: 3493 / NUT Master)
     └── nut_exporter (Port: 9199)
@@ -105,7 +105,7 @@ curl -s "http://localhost:9199/ups_metrics?target=by50s" | grep -E "temperature|
 scrape_configs:
   - job_name: "nut_ups_rpi_zero"
     static_configs:
-      - targets: ["192.168.0.18:9199"]
+      - targets: ["<RPI_IP>:9199"] # Raspberry Pi Zero の IP
     metrics_path: "/ups_metrics"
     params:
       target: ["by50s"]
@@ -196,7 +196,7 @@ MODE=netclient
 `/etc/nut/upsmon.conf`:
 
 ```ini
-MONITOR by50s@192.168.0.18:3493 1 monuser <SECURE_PASSWORD> slave
+MONITOR by50s@<RPI_IP>:3493 1 monuser <SECURE_PASSWORD> slave
 SHUTDOWNCMD "/sbin/shutdown -h +0"
 POWERDOWNFLAG /etc/killpower
 ```
@@ -205,7 +205,7 @@ POWERDOWNFLAG /etc/killpower
 
 ```bash
 systemctl enable --now nut-client
-upsc by50s@192.168.0.18:3493
+upsc by50s@<RPI_IP>:3493
 ```
 
 ---
