@@ -12,18 +12,20 @@ hideMeta: true
 「**世の中をもっと便利に、面白くする**」をモットーに、自宅小型サーバー・ネットワークの構築運用から、日々の課題を自動化・効率化する自作ツール開発、Godot Engine によるゲーム制作まで幅広く取り組んでいます。
 
 ### AI & エージェント駆動のライフスタイル
-制作・開発や日々の環境運用に AI エージェントを徹底的に組み込んでいます：
+日常のメイン母艦環境は **Windows 11 Pro** を基盤とし、その上で AI エージェントや Hyper-V 仮想環境を徹底的に組み込んでいます：
+- **メイン作業基盤**: **Windows 11 Pro** をホストとし、GUI / ターミナル / エージェント環境をシームレスに統合。
 - **プロダクト開発**: **Gemini** で構想・アーキテクチャの壁打ちを行い、プロンプトを練り上げてから **Antigravity**（AI Coding Assistant）に実装してもらう協調開発フローを実践。
-- **日常運用・環境保守**: **Hermes Agent** を活用して Obsidian のノート更新を任せたり、Hyper-V 仮想環境上の **CachyOS** にて **Neovim** や **WezTerm** の設定変更・チューニングをエージェントに自律実行させるなど、日常のツールチェーン全体をエージェントとともに運用しています。
+- **日常運用・環境保守**: **Hermes Agent** を活用して Obsidian のノート更新を任せたり、Hyper-V 仮想マシン上の **CachyOS** にて **Neovim** や **WezTerm** の設定変更・チューニングをエージェントに自律実行させるなど、日常のツールチェーン全体をエージェントとともに運用。
 
 ---
 
 ## 🛠️ 現在の主な技術スタック
 
 ### 仮想化・インフラ・OS
+- **メインホスト OS**: **Windows 11 Pro**（メイン作業・母艦基盤）
+- **仮想化 / コンテナ**: Hyper-V（CachyOS 等のゲスト運用）、Docker
+- **ゲスト & Linux ディストロ**: CachyOS（Hyper-V 内メイン作業環境）、NixOS、Arch Linux、Ubuntu
 - **自宅・小型サーバー**: HPE ProLiant Micro TM200 / Proxmox VE (LXC コンテナ運用)
-- **仮想化**: Hyper-V、Docker
-- **OS / ディストロ**: NixOS、CachyOS、Arch Linux、Ubuntu、Linux 全般
 - **環境構築 / 宣言的管理**: Nix Flakes + Home Manager、dotfiles
 
 ### AI ＆ エージェント活用
