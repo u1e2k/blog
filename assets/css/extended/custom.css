@@ -310,6 +310,41 @@ body {
   margin: 20px 0;
 }
 
+.post-content table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin: 20px 0;
+}
+
+.post-content table th {
+  background: var(--tertiary);
+  color: var(--primary);
+  font-weight: 700;
+  padding: 10px 16px;
+  border-bottom: 2px solid var(--border);
+}
+
+.post-content table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-content table tr:last-child td {
+  border-bottom: none;
+}
+
+.post-content table tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+:root[data-theme="dark"] .post-content table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
 .post-content a {
   color: var(--accent-color);
   text-decoration: underline;
