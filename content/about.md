@@ -48,6 +48,16 @@ hideMeta: true
 | **コンテナ・VM** | **LXC ✕ QEMU VM** | 各種軽量サービス、ゲーム鯖 (Project Zomboid)、Windows Server 2025 |
 | **電源保護** | **OMRON BY50S ✕ Pi Zero** | NUT Master 連携・停電検知発報 & Proxmox 安全停止連動 |
 
+### 💻 プログラミング言語 & 開発スタック
+
+| 言語 / 技術 | 主な用途・制作物 | 活用領域・フレームワーク |
+| :--- | :--- | :--- |
+| **TypeScript / JavaScript** | Obsidian プラグイン、Web ツール、フロントエンド | Obsidian API, React, Bun, Astro |
+| **Go** | ターミナル特化型 TUI CLI、軽量ツール開発 | `tsub` (マイクロブログ CLI), Bubble Tea |
+| **GDScript** | 2D ゲーム制作、プロトタイピング | Godot Engine 4 (`squareman`, `poteverse`) |
+| **Python** | 業務自動化、LLM 活用、RAG（検索拡張生成）システム検証 | LLM API, PLaMo, データ処理 |
+| **Nix / Shell (Bash, Fish)** | 宣言的システム構築、dotfiles、インフラ自動化 | NixOS, Nix Flakes, Home Manager |
+
 ---
 
 ## 🌟 主なプロジェクト・制作物
