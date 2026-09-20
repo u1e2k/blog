@@ -29,7 +29,7 @@ hideMeta: true
 - **環境の宣言的管理**: Nix Flakes + Home Manager、dotfiles
 
 ### 🖧 自宅サーバー & クラスタインフラ (Proxmox VE)
-- **クラスタ基盤**: **Proxmox VE 9.2** 複数ノードクラスタ（`pve1`, `pve2` / HPE ProLiant Micro TM200 等）
+- **クラスタ基盤**: **Proxmox VE 9.2** 複数ノードクラスタ（HPE ProLiant Micro TM200 等）
 - **可観測性 & モニタリング**: **Prometheus** ✕ **Grafana** によるクラスタメトリクス収集・ダッシュボード可視化
 - **ネットワーク & プロキシ**: **Nginx Proxy Manager**、**Tailscale**（セキュアなメッシュ VPN 連携）、Proxmox SDN（ゾーン分離・仮想ネットワーク）
 - **LXC コンテナ運用**: Prometheus、Grafana、NPM、ゲーム専用サーバー（Project Zomboid など）
