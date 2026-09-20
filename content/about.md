@@ -21,12 +21,16 @@ hideMeta: true
 
 ## 🛠️ 現在の主な技術スタック
 
-### 仮想化・インフラ・OS
+### 仮想化・インフラ・ホームラボ
 - **メインホスト OS**: **Windows 11 Pro**（メイン作業・母艦基盤）
-- **仮想化 / コンテナ**: Hyper-V（CachyOS 等のゲスト運用）、Docker
-- **ゲスト & Linux ディストロ**: CachyOS（Hyper-V 内メイン作業環境）、NixOS、Arch Linux、Ubuntu
-- **自宅・小型サーバー**: HPE ProLiant Micro TM200 / Proxmox VE (LXC コンテナ運用)
-- **環境構築 / 宣言的管理**: Nix Flakes + Home Manager、dotfiles
+- **自宅サーバークラスタ**: **Proxmox VE** 複数ノードクラスタ（`pve1`, `pve2` / HPE ProLiant Micro TM200 等）
+- **可観測性 & モニタリング**: **Prometheus** ✕ **Grafana** によるメトリクス収集・ダッシュボード可視化
+- **ネットワーク & プロキシ**: **Nginx Proxy Manager**、**Tailscale**（セキュアなメッシュ VPN 連携）、Proxmox SDN（ゾーン分離・仮想ネットワーク）
+- **コンテナ & VM 運用**:
+  - 各種専用 **LXC コンテナ**（Prometheus, Grafana, NPM, Project Zomboid などのゲーム専用サーバー）
+  - **QEMU VM**（Windows Server 2025 評価・検証など）
+  - **クライアント仮想化**: Hyper-V（CachyOS 開発環境運用）、Docker
+- **Linux ディストロ & 宣言的管理**: CachyOS、NixOS、Arch Linux、Nix Flakes + Home Manager、dotfiles
 
 ### AI ＆ エージェント活用
 - **AI ペアプログラミング**: Gemini (設計・壁打ち・プロンプト生成) ✕ Antigravity (実装)
