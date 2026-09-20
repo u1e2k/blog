@@ -3,6 +3,10 @@ title: "About"
 url: "/about/"
 summary: "u1e2k のプロフィールとこのブログについて"
 description: "フリーランス インフラエンジニア / メディアオペレーター / ツール・ゲームクリエイター"
+cover:
+  image: "assets/images/about_cover.jpg"
+  alt: "u1e2k Developer Workstation"
+  caption: ""
 hideMeta: true
 ---
 
