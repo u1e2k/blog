@@ -51,6 +51,7 @@
 {{- partial "home_info.html" . }}
 {{- end }}
 
+{{- $term := .Data.Term }}
 <div class="posts-grid">
 {{- range $index, $page := $paginator.Pages }}
 
