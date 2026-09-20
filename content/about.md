@@ -6,42 +6,47 @@ description: "フリーランス インフラエンジニア / メディアオ�
 hideMeta: true
 ---
 
-## 👤 About Me
+## 👤 Profile
 
 フリーランスのインフラエンジニアおよびダンスイベントのメディアオペレーターとして活動しています。  
-「**世の中をもっと便利に、面白くする**」をモットーに、自宅小型サーバー・ネットワークの構築運用から、日々の課題を自動化・効率化する自作ツール開発、Godot Engine によるゲーム制作まで幅広く取り組んでいます。
-
-### AI & エージェント駆動のライフスタイル
-日常のメイン母艦環境は **Windows 11 Pro** を基盤とし、その上で AI エージェントや Hyper-V 仮想環境を徹底的に組み込んでいます：
-- **メイン作業基盤**: **Windows 11 Pro** をホストとし、GUI / ターミナル / エージェント環境をシームレスに統合。
-- **プロダクト開発**: **Gemini** で構想・アーキテクチャの壁打ちを行い、プロンプトを練り上げてから **Antigravity**（AI Coding Assistant）に実装してもらう協調開発フローを実践。
-- **日常運用・ナレッジ保守**: 日々の技術検証や思考メモのメイン保存先は **Obsidian** に集約。**Hermes Agent** を連携させてノートの自動更新を任せたり、Hyper-V 仮想マシン上の **CachyOS** にて **Neovim** や **WezTerm** の設定変更・チューニングをエージェントに自律実行させるなど、ツールチェーン全体をエージェントとともに運用。
+「**世の中をもっと便利に、面白くする**」をモットーに、自宅サーバー・ネットワーク構築から、日々の課題を自動化する自作ツール開発、Godot Engine によるゲーム制作まで幅広く取り組んでいます。
 
 ---
 
-## 🛠️ 現在の主な技術スタック
+## 🤖 AI & エージェント駆動ワークフロー
 
-### 🖥️ メインホスト & デスクトップ環境 (Windows 11 Pro)
-- **母艦 OS**: **Windows 11 Pro**（日常のメイン作業基盤）
-- **ナレッジ管理 & メインドキュメント保存庫**: **Obsidian**（日々の思考、検証記録、技術ドキュメントの主たる集約先）
-- **クライアント仮想化**: **Hyper-V** 上で **CachyOS** をゲスト運用し、高速な Linux 開発環境を常設
-- **エディタ & ターミナル**: **Neovim**、**WezTerm**、Kitty、Fish (interactive) / Bash (scripts)
-- **自律型エージェント保守**: **Hermes Agent** を活用し、Obsidian ノートの自動更新や CachyOS 内の Neovim / WezTerm 設定の自律変更・チューニングを委任
-- **環境の宣言的管理**: Nix Flakes + Home Manager、dotfiles
+日常の開発からシステム運用・ナレッジ管理まで、AI エージェントを日常の基盤として組み込んでいます。
 
-### 🖧 自宅サーバー & クラスタインフラ (Proxmox VE)
-- **クラスタ基盤**: **Proxmox VE 9.2** 複数ノードクラスタ（HPE ProLiant Micro TM200 等）
-- **可観測性 & モニタリング**: **Prometheus** ✕ **Grafana** によるクラスタメトリクス収集・ダッシュボード可視化
-- **ネットワーク & プロキシ**: **Nginx Proxy Manager**、**Tailscale**（セキュアなメッシュ VPN 連携）、Proxmox SDN（ゾーン分離・仮想ネットワーク）
-- **LXC コンテナ運用**: Prometheus、Grafana、NPM、ゲーム専用サーバー（Project Zomboid など）
-- **仮想マシン (QEMU VM)**: Windows Server 2025 評価・検証環境など
-- **電源保護 & UPS 監視**: OMRON BY50S ✕ Raspberry Pi Zero (NUT) ✕ Prometheus / Grafana / Discord 停電発報 & Proxmox 安全停止連動
+| 領域 | 活用エージェント | 役割と実践内容 |
+| :--- | :--- | :--- |
+| **プロダクト開発** | **Gemini ✕ Antigravity** | Gemini で構想・アーキテクチャを壁打ちしてプロンプト化し、Antigravity が実装・テストを並走 |
+| **ナレッジ管理** | **Hermes Agent ✕ Obsidian** | 日常の思考や技術検証メモを Obsidian に集約し、エージェントがノート整理や自動更新を自律代行 |
+| **開発環境保守** | **Hermes Agent ✕ CachyOS** | Hyper-V 上の CachyOS 環境にて、Neovim や WezTerm の設定変更・チューニングをエージェントが自律実行 |
 
-### 🤖 開発スタイル & アプリケーション制作
-- **AI ペアプログラミング**: **Gemini** (構想・アーキテクチャ壁打ち・プロンプト生成) ✕ **Antigravity** (実装・テスト・ペアプロ)
-- **ゲーム制作**: **Godot Engine 4** (GDScript) による 2D ゲーム開発
-- **開発言語**: Go、TypeScript、Python、Shell
-- **このブログ**: Hugo (PaperMod) + GitHub Pages
+---
+
+## 🛠️ システム構成 & 技術スタック
+
+### 🖥️ メインデスクトップ環境 (Client)
+
+| コンポーネント | 採用技術・ツール | 概要・用途 |
+| :--- | :--- | :--- |
+| **母艦 OS** | **Windows 11 Pro** | 日常のメイン作業基盤・GUI・各種エージェント統合 |
+| **仮想化 / Linux** | **Hyper-V ✕ CachyOS** | メイン Linux 開発環境を常設運用 |
+| **ナレッジ基盤** | **Obsidian** | 思考メモ・技術ドキュメントの主たる保存庫 |
+| **エディタ** | **Neovim** | ターミナル作業・コーディング（エージェント保守） |
+| **ターミナル / シェル** | **WezTerm** / Kitty / Fish / Bash | 高速ターミナル ✕ インタラクティブシェル |
+| **環境再現性** | **Nix Flakes + Home Manager** | dotfiles の宣言的管理 |
+
+### 🖧 自宅サーバー & クラスタ (Homelab)
+
+| レイヤー | 採用技術・ツール | 概要・用途 |
+| :--- | :--- | :--- |
+| **仮想化基盤** | **Proxmox VE 9.2** | 小型サーバー複数ノードによる高可用クラスタ |
+| **可観測性** | **Prometheus ✕ Grafana** | メトリクス収集と NOC 風リアルタイム監視ダッシュボード |
+| **ネットワーク** | **NPM ✕ Tailscale ✕ SDN** | リバースプロキシ・メッシュ VPN・ゾーン分離 |
+| **コンテナ・VM** | **LXC ✕ QEMU VM** | 各種軽量サービス、ゲーム鯖 (Project Zomboid)、Windows Server 2025 |
+| **電源保護** | **OMRON BY50S ✕ Pi Zero** | NUT Master 連携・停電検知発報 & Proxmox 安全停止連動 |
 
 ---
 
@@ -50,7 +55,7 @@ hideMeta: true
 | プロジェクト | 概要 | 主な技術 |
 | :--- | :--- | :--- |
 | 💎 **[u1e2k/mumbler](https://github.com/u1e2k/mumbler)** | Obsidian 向けタイムライン／マイクロブログ投稿プラグイン | `TypeScript` `Obsidian API` |
-| ⚡ **[u1e2k/tsub](https://github.com/u1e2k/tsub)** | ターミナルから 1 秒で Obsidian デイリーノートへメモ投稿・閲覧できる TUI CLI | `Go` `TUI` `CLI` |
+| ⚡ **[u1e2k/tsub](https://github.com/u1e2k/tsub)** | ターミナルから 1 秒でデイリーノートへメモ投稿・閲覧できる TUI CLI | `Go` `TUI` `CLI` |
 | 🎮 **[u1e2k/squareman](https://github.com/u1e2k/squareman)** | Godot 4 による 2D アクション／パズルゲームプロジェクト | `Godot 4` `GDScript` |
 | 🎮 **[u1e2k/poteverse](https://github.com/u1e2k/poteverse)** | Godot Engine を活用したゲーム制作プロトタイプ | `Godot 4` `GDScript` |
 | 🎮 **[u1e2k/othellonly](https://github.com/u1e2k/othellonly)** | Godot 4 によるリバーシ（オセロ）ゲームプロジェクト | `Godot 4` `GDScript` |
@@ -59,12 +64,14 @@ hideMeta: true
 
 ---
 
-## 📝 主な発信メディア & リンク
+## 📝 発信メディア & リンク
 
-- 🐙 **GitHub**: [@u1e2k](https://github.com/u1e2k) — ソースコード、自作ツール、dotfiles
-- 📑 **note**: [note.com/u1e2k](https://note.com/u1e2k) — サーバー構築・Proxmox LXC・ハードウェア分解・コラムなど
-- 🐦 **X (Twitter)**: [@u1e2k](https://x.com/u1e2k) — 日常のつぶやき・開発進捗
-- 📊 **LAPRAS**: [LAPRAS Profile](https://lapras.com/public/SGDKQTX) — 技術力・活動ポートフォリオ
+| メディア | リンク / アカウント | 主な発信内容 |
+| :--- | :--- | :--- |
+| 🐙 **GitHub** | [@u1e2k](https://github.com/u1e2k) | ソースコード、自作ツール、dotfiles、OSS 活動 |
+| 📑 **note** | [note.com/u1e2k](https://note.com/u1e2k) | サーバー構築、Proxmox LXC、ハードウェア分解検証、コラム |
+| 🐦 **X (Twitter)** | [@u1e2k](https://x.com/u1e2k) | 日常のつぶやき、技術検証の進捗速報 |
+| 📊 **LAPRAS** | [LAPRAS Profile](https://lapras.com/public/SGDKQTX) | スキル・活動ポートフォリオ |
 
 ---
 
