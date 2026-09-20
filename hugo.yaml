@@ -49,7 +49,7 @@ params:
 
   label:
     text: "u1e2k blog"
-    icon: "/blog/assets/images/logo.png"
+    icon: "assets/images/logo.png"
     iconHeight: 28
 
   homeInfoParams:
