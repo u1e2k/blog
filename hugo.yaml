@@ -3,7 +3,9 @@ title: "u1e2k blog"
 theme: "PaperMod"
 locale: "ja-jp"
 defaultContentLanguage: "ja"
-paginate: 8
+pagination:
+  pagerSize: 6
+paginate: 6
 
 outputs:
   home:
