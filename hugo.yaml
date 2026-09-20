@@ -33,6 +33,7 @@ services:
 
 params:
   env: production
+  newPostDays: 30
   title: "u1e2k blog"
   description: "ソフトウェアエンジニアの備忘録。Nix、Linux、Web 開発、インフラなど。"
   author: "u1e2k"
