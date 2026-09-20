@@ -45,6 +45,8 @@ params:
   ShowCodeCopyButtons: true
   ShowWordCount: false
   ShowRssButtonInSectionTermList: true
+  ShowToc: true
+  TocOpen: true
   UseHugoToc: true
 
   label:

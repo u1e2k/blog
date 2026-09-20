@@ -792,4 +792,73 @@ body {
   font-weight: 600;
 }
 
+/* ==========================================================================
+   TOC (Table of Contents) Modern Styling
+   ========================================================================== */
+
+details.toc {
+  margin: 20px 0 28px 0;
+  padding: 12px 18px;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  transition: all 0.2s ease;
+}
+
+details.toc:hover {
+  border-color: var(--accent-color);
+}
+
+details.toc summary {
+  cursor: pointer;
+  padding: 4px 6px;
+  font-weight: 700;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+details.toc summary .title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+details.toc .inner {
+  padding: 12px 8px 6px 8px;
+  margin-top: 8px;
+  border-top: 1px dashed var(--border);
+}
+
+details.toc ul {
+  list-style: none;
+  padding-inline-start: 18px;
+  margin: 0;
+}
+
+details.toc > .inner > ul {
+  padding-inline-start: 0;
+}
+
+details.toc li {
+  margin: 6px 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+details.toc a {
+  color: var(--secondary);
+  text-decoration: none !important;
+  transition: color 0.15s ease, transform 0.15s ease;
+  display: inline-block;
+}
+
+details.toc a:hover {
+  color: var(--accent-color);
+  transform: translateX(4px);
+}
+
+
 
