@@ -25,7 +25,6 @@ body {
   font-family: var(--font-family);
   letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 /* Header styling */
@@ -874,8 +873,8 @@ details.toc a:hover {
     position: absolute;
     left: calc(100% + 32px);
     top: 0;
+    bottom: 0;
     width: 245px;
-    height: 100%;
     pointer-events: none;
   }
 
@@ -887,12 +886,13 @@ details.toc a:hover {
   }
 
   .toc-sidebar details.toc {
+    position: -webkit-sticky;
     position: sticky;
-    top: 90px;
+    top: 80px;
     margin: 0;
     padding: 0;
     pointer-events: auto;
-    max-height: calc(100vh - 120px);
+    max-height: calc(100vh - 100px);
     overflow-y: auto;
     scrollbar-width: thin;
     background: transparent !important;
