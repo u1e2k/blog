@@ -1,0 +1,80 @@
+baseURL: "https://u1e2k.github.io/blog/"
+title: "u1e2k blog"
+theme: "PaperMod"
+locale: "ja-jp"
+defaultContentLanguage: "ja"
+paginate: 8
+
+permalinks:
+  posts: /:slug/
+
+taxonomies:
+  category: categories
+  tag: tags
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    lineNos: true
+    lineNumbersInTable: false
+    guessSyntax: true
+
+services:
+  googleAnalytics:
+    id: "G-L45KVY6N4D"
+
+params:
+  env: production
+  title: "u1e2k blog"
+  description: "ソフトウェアエンジニアの備忘録。Nix、Linux、Web 開発、インフラなど。"
+  author: "u1e2k"
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: false
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+
+  homeInfoParams:
+    Title: "u1e2k blog"
+    Content: "ソフトウェアエンジニアの備忘録。Nix、Linux、Web 開発、インフラなど。"
+
+  cover:
+    responsiveImages: true
+    linkFullImages: true
+
+  assets:
+    favicon: "assets/images/logo.png"
+    favicon16x16: "assets/images/logo.png"
+    favicon32x32: "assets/images/logo.png"
+    apple_touch_icon: "assets/images/logo.png"
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/u1e2k"
+    - name: twitter
+      url: "https://twitter.com/u1e2k"
+
+menu:
+  main:
+    - identifier: posts
+      name: 記事一覧
+      url: /posts/
+      weight: 10
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 20
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 30
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 40
