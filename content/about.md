@@ -52,10 +52,13 @@ hideMeta: true
 
 | 言語 / 技術 | 主な用途・制作物 | 活用領域・フレームワーク |
 | :--- | :--- | :--- |
-| **TypeScript / JavaScript** | Obsidian プラグイン、Web ツール、フロントエンド | Obsidian API, React, Bun, Astro |
-| **Go** | ターミナル特化型 TUI CLI、軽量ツール開発 | `tsub` (マイクロブログ CLI), Bubble Tea |
-| **GDScript** | 2D ゲーム制作、プロトタイピング | Godot Engine 4 (`squareman`, `poteverse`) |
-| **Python** | 業務自動化、LLM 活用、RAG（検索拡張生成）システム検証 | LLM API, PLaMo, データ処理 |
+| **TypeScript / JavaScript** | Obsidian プラグイン、Web ツール、Expo モバイルアプリ、Chrome 拡張 | Obsidian API, React, Expo, Bun, Astro |
+| **Go** | ターミナル特化型 TUI CLI、和暦カレンダーツール | `tsub` (マイクロブログ CLI), `jpcal`, Bubble Tea |
+| **Kotlin** | Android アプリケーション開発、画面回転制御・メディアツール | `rotatehome`, `dougahenkankun`, Android SDK |
+| **GDScript** | 2D ゲーム制作（アクション、パズル、リバーシなど） | Godot Engine 4 (`squareman`, `poteverse`, `othellonly`) |
+| **Python** | 業務自動化、LLM 活用、RAG システム検証 | LLM API, PLaMo, データ処理・スクレイピング |
+| **C#** | Windows デスクトップユーティリティ制作 | `MyScreenshotTool`, .NET |
+| **Ruby / Rails** | Web アプリケーション学習・個人開発 | Ruby on Rails, Jekyll |
 | **Nix / Shell (Bash, Fish)** | 宣言的システム構築、dotfiles、インフラ自動化 | NixOS, Nix Flakes, Home Manager |
 
 ---
@@ -66,9 +69,14 @@ hideMeta: true
 | :--- | :--- | :--- |
 | 💎 **[u1e2k/mumbler](https://github.com/u1e2k/mumbler)** | Obsidian 向けタイムライン／マイクロブログ投稿プラグイン | `TypeScript` `Obsidian API` |
 | ⚡ **[u1e2k/tsub](https://github.com/u1e2k/tsub)** | ターミナルから 1 秒でデイリーノートへメモ投稿・閲覧できる TUI CLI | `Go` `TUI` `CLI` |
+| 📅 **[u1e2k/jpcal](https://github.com/u1e2k/jpcal)** | 日本の祝日情報を含む和暦対応のカレンダー CLI コマンド | `Go` `CLI` |
+| 📱 **[u1e2k/rotatehome](https://github.com/u1e2k/rotatehome)** | Android 向けホーム画面画面回転制御ユーティリティ | `Kotlin` `Android` |
+| 📸 **[u1e2k/MyScreenshotTool](https://github.com/u1e2k/MyScreenshotTool)** | Windows 向け自作デスクトップスクリーンショットツール | `C#` `.NET` |
+| 📝 **[u1e2k/markdown-editor](https://github.com/u1e2k/markdown-editor)** | Web ブラウザ上で軽快に動作する Markdown エディタ | `TypeScript` `Web` |
+| 🚀 **[u1e2k/ftp-deploy](https://github.com/u1e2k/ftp-deploy)** | 1 コマンドで Web サイトを FTP デプロイする CLI ツール | `TypeScript` `Node.js` |
+| 🎮 **[u1e2k/othellonly](https://github.com/u1e2k/othellonly)** | Godot 4 によるリバーシ（オセロ）ゲームプロジェクト | `Godot 4` `GDScript` |
 | 🎮 **[u1e2k/squareman](https://github.com/u1e2k/squareman)** | Godot 4 による 2D アクション／パズルゲームプロジェクト | `Godot 4` `GDScript` |
 | 🎮 **[u1e2k/poteverse](https://github.com/u1e2k/poteverse)** | Godot Engine を活用したゲーム制作プロトタイプ | `Godot 4` `GDScript` |
-| 🎮 **[u1e2k/othellonly](https://github.com/u1e2k/othellonly)** | Godot 4 によるリバーシ（オセロ）ゲームプロジェクト | `Godot 4` `GDScript` |
 | ❄️ **[u1e2k/dotfiles](https://github.com/u1e2k/dotfiles)** | Nix Flakes + Home Manager で管理する再現性の高い個人開発環境 | `Nix` `Shell` `Linux` |
 | 📝 **[u1e2k/blog](https://github.com/u1e2k/blog)** | このブログのソースコード（Hugo + PaperMod） | `Hugo` `HTML/CSS` |
 
