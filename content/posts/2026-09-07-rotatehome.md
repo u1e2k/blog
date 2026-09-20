@@ -5,6 +5,9 @@ tags: ["android", "kotlin", "jetpack-compose", "retro-gaming", "launcher", "devl
 categories: ["DevLog"]
 draft: false
 slug: "rotatehome"
+cover:
+  image: "assets/images/thumb_rotatehome.jpg"
+  alt: "rotatehome"
 description: "ポータブルゲーム機RG Rotateの画面回転と十字キー操作に特化した、縦スクロール不要の5x5ページング型Androidホームランチャー「rotatehome」の開発記録。"
 ---
 

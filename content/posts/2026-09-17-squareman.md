@@ -5,6 +5,9 @@ tags: ["android", "kotlin", "jetpack-compose", "media3", "retro-gaming", "devlog
 categories: ["DevLog"]
 draft: false
 slug: "squareman"
+cover:
+  image: "assets/images/thumb_squareman.jpg"
+  alt: "Squareman"
 description: "RG CubeやRG Rotateなど1:1正方形Android機向けに、画面タッチ不要・十字キーのみで快適に動くレトロカセット風音楽プレーヤー「Squareman」を開発しました。"
 ---
 
