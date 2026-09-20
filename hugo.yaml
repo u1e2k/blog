@@ -35,7 +35,7 @@ params:
   env: production
   newPostDays: 30
   title: "u1e2k blog"
-  description: "インフラエンジニアの備忘録。Linux、Nix、インフラ、コンテナなど。"
+  description: "フリーランス インフラエンジニア・メディアオペレーター・クリエイター u1e2k の技術備忘録。Proxmox、NixOS、Godot、自作ツール、AI協調開発など。"
   author: "u1e2k"
   defaultTheme: auto
   ShowReadingTime: true
@@ -54,7 +54,7 @@ params:
 
   homeInfoParams:
     Title: "u1e2k blog"
-    Content: "インフラエンジニアの備忘録。Linux、Nix、インフラ、コンテナなど。"
+    Content: "フリーランス インフラエンジニア・メディアオペレーター・クリエイター。Proxmox、NixOS、Godot ゲーム制作、Obsidian 自作ツール、AI 協調開発の記録などを発信しています。"
 
   cover:
     responsiveImages: true
@@ -70,7 +70,13 @@ params:
     - name: github
       url: "https://github.com/u1e2k"
     - name: twitter
-      url: "https://twitter.com/u1e2k"
+      url: "https://x.com/u1e2k"
+    - name: note
+      title: "note"
+      url: "https://note.com/u1e2k"
+    - name: other
+      title: "LAPRAS"
+      url: "https://lapras.com/public/SGDKQTX"
 
 menu:
   main:

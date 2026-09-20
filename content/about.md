@@ -1,48 +1,64 @@
 ---
 title: "About"
 url: "/about/"
-summary: "このブログについて"
-description: "このブログと運営者について"
+summary: "u1e2k のプロフィールとこのブログについて"
+description: "フリーランス インフラエンジニア / メディアオペレーター / ツール・ゲームクリエイター"
 hideMeta: true
 ---
 
-## u1e2k のブログ
+## 👤 About Me
 
-インフラエンジニアの備忘録兼実験場です。主に以下のトピックについて書いています。
+フリーランスのインフラエンジニアおよびダンスイベントのメディアオペレーターとして活動しています。  
+「**世の中をもっと便利に、面白くする**」をモットーに、自宅小型サーバー・ネットワークの構築運用から、日々の課題を自動化・効率化する自作ツール開発、Godot Engine によるゲーム制作まで幅広く取り組んでいます。
 
-- **開発環境**: Nix Flakes + Home Manager、dotfiles、Neovim、ターミナル周り
-- **Linux / Wayland**: Hyprland、Waybar、fcitx5、Arch 系ディストロ
-- **Web 開発**: Astro、Bun、TypeScript、静的サイト生成
-- **インフラ・ツール**: Docker、GitHub Actions、CI/CD
+直近の制作・開発スタイルは、**「Gemini でアイデアやアーキテクチャの壁打ちを行い、プロンプトを練り上げてから Antigravity（AI Coding Assistant）に実装してもらう」** という AI 協調開発フローをフル活用して高速にアウトプットしています。
 
-## 現在のスタック
+---
 
-| カテゴリ | ツール・技術 |
-| :--- | :--- |
-| **OS / 環境管理** | Nix Flakes + Home Manager (CachyOS / Arch) |
-| **ウィンドウマネージャ** | Hyprland |
-| **ターミナル** | Kitty |
-| **シェル** | Fish (interactive) / Bash (scripts) |
-| **エディタ** | Neovim |
-| **バージョン管理** | Git + GitHub |
-| **個人サイト** | Astro + Bun + GitHub Pages |
-| **このブログ** | Hugo + GitHub Pages (PaperMod) |
+## 🛠️ 現在の主な技術スタック
 
-## 主なリポジトリ
+### インフラ・仮想化・サーバー
+- **自宅・小型サーバー**: HPE ProLiant Micro TM200 / Proxmox VE (LXC コンテナ運用)
+- **環境構築 / 宣言的管理**: NixOS、Nix Flakes + Home Manager、dotfiles
+- **コンテナ・OS**: Docker、Arch Linux、Ubuntu、Linux 全般
 
-- [u1e2k/dotfiles](https://github.com/u1e2k/dotfiles) — Nix Flakes + Home Manager で管理する dotfiles
-- [u1e2k/u1e2k.github.io](https://github.com/u1e2k/u1e2k.github.io) — Astro + Bun で作った個人サイト
-- [u1e2k/mydocker](https://github.com/u1e2k/mydocker) — Docker で Hyprland 動作検証 (実験的)
-- [u1e2k/blog](https://github.com/u1e2k/blog) — このブログのソース (Hugo)
+### 開発・プログラミング
+- **ゲーム開発**: Godot Engine 4 (GDScript) による 2D ゲーム制作
+- **言語 / ツール**: Go、TypeScript、Python、Shell (Bash / Fish)、Neovim、Kitty
+- **AI 協調開発**: Gemini (構想・壁打ち・プロンプト設計) ✕ Antigravity (実装・ペアプログラミング)、LLM / RAG 活用
+- **このブログ**: Hugo (PaperMod) + GitHub Pages
 
-## 連絡先
+---
 
-- GitHub: [@u1e2k](https://github.com/u1e2k)
-- Twitter: [@u1e2k](https://twitter.com/u1e2k)
+## 🌟 主なプロジェクト・制作物
 
-## ライセンス
+| プロジェクト | 概要 | 主な技術 |
+| :--- | :--- | :--- |
+| 💎 **[u1e2k/mumbler](https://github.com/u1e2k/mumbler)** | Obsidian 向けタイムライン／マイクロブログ投稿プラグイン | `TypeScript` `Obsidian API` |
+| ⚡ **[u1e2k/tsub](https://github.com/u1e2k/tsub)** | ターミナルから 1 秒で Obsidian デイリーノートへメモ投稿・閲覧できる TUI CLI | `Go` `TUI` `CLI` |
+| 🎮 **[u1e2k/squareman](https://github.com/u1e2k/squareman)** | Godot 4 による 2D アクション／パズルゲームプロジェクト | `Godot 4` `GDScript` |
+| 🎮 **[u1e2k/poteverse](https://github.com/u1e2k/poteverse)** | Godot Engine を活用したゲーム制作プロトタイプ | `Godot 4` `GDScript` |
+| 🎮 **[u1e2k/othellonly](https://github.com/u1e2k/othellonly)** | Godot 4 によるリバーシ（オセロ）ゲームプロジェクト | `Godot 4` `GDScript` |
+| ❄️ **[u1e2k/dotfiles](https://github.com/u1e2k/dotfiles)** | Nix Flakes + Home Manager で管理する再現性の高い個人開発環境 | `Nix` `Shell` `Linux` |
+| 📝 **[u1e2k/blog](https://github.com/u1e2k/blog)** | このブログのソースコード（Hugo + PaperMod） | `Hugo` `HTML/CSS` |
 
-記事の内容は [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)、コードスニペットは [MIT License](https://opensource.org/licenses/MIT) で公開しています。自由に引用・改変してください（クレジット表記をお願いします）。
+---
+
+## 📝 主な発信メディア & リンク
+
+- 🐙 **GitHub**: [@u1e2k](https://github.com/u1e2k) — ソースコード、自作ツール、dotfiles
+- 📑 **note**: [note.com/u1e2k](https://note.com/u1e2k) — サーバー構築・Proxmox LXC・ハードウェア分解・コラムなど
+- 🐦 **X (Twitter)**: [@u1e2k](https://x.com/u1e2k) — 日常のつぶやき・開発進捗
+- 📊 **LAPRAS**: [LAPRAS Profile](https://lapras.com/public/SGDKQTX) — 技術力・活動ポートフォリオ
+
+---
+
+## 📄 ライセンス
+
+- 記事の文章コンテンツ: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- コードスニペット / ソースコード: [MIT License](https://opensource.org/licenses/MIT)
+
+自由に引用・改変していただけます（クレジット表記をお願いします）。
 
 ---
 
