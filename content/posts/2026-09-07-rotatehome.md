@@ -1,7 +1,7 @@
 ---
 title: "【開発記録】RG Rotate向けAndroid専用ホームアプリ「rotatehome」のページング＆ゲームパッドUI"
 date: 2026-09-07T12:23:02Z
-tags: ["Android", "Kotlin", "Jetpack Compose", "レトロゲーム機", "ランチャー", "開発"]
+tags: ["android", "kotlin", "jetpack-compose", "retro-gaming", "launcher", "devlog"]
 categories: ["DevLog"]
 draft: false
 slug: "rotatehome"

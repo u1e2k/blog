@@ -1,7 +1,7 @@
 ---
 title: "【開発記録】正方形ディスプレイ特化のレトロ音楽プレーヤー「Squareman」のCompose & Media3実装"
 date: 2026-09-17T17:16:34Z
-tags: ["Android", "Kotlin", "Jetpack Compose", "Media3", "レトロゲーム機", "開発"]
+tags: ["android", "kotlin", "jetpack-compose", "media3", "retro-gaming", "devlog"]
 categories: ["DevLog"]
 draft: false
 slug: "squareman"
