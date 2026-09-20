@@ -36,12 +36,12 @@
 
     <!-- Quick Switcher Tabs -->
     <div class="taxonomy-tabs">
-      <a href="{{ "/categories/" | relURL }}" class="taxonomy-tab{{ if $isCategories }} active{{ end }}">
+      <a href="{{ with site.GetPage "categories" }}{{ .RelPermalink }}{{ else }}{{ "categories/" | relURL }}{{ end }}" class="taxonomy-tab{{ if $isCategories }} active{{ end }}">
         <span class="tab-icon">📁</span>
         <span>Categories</span>
         <span class="tab-badge">{{ len site.Taxonomies.categories }}</span>
       </a>
-      <a href="{{ "/tags/" | relURL }}" class="taxonomy-tab{{ if not $isCategories }} active{{ end }}">
+      <a href="{{ with site.GetPage "tags" }}{{ .RelPermalink }}{{ else }}{{ "tags/" | relURL }}{{ end }}" class="taxonomy-tab{{ if not $isCategories }} active{{ end }}">
         <span class="tab-icon">🏷️</span>
         <span>Tags</span>
         <span class="tab-badge">{{ len site.Taxonomies.tags }}</span>
@@ -58,7 +58,7 @@
       {{- $catKey := $name | lower }}
       {{- $icon := index $iconMap $catKey | default "📂" }}
       {{- $termPage := or .Page (site.GetPage (printf "/%s/%s" $type $name)) (site.GetPage (printf "/%s/%s" $type ($name | urlize))) }}
-      {{- $termLink := printf "/%s/%s/" $type ($name | urlize) | relURL }}
+      {{- $termLink := printf "%s/%s/" $type ($name | urlize) | relURL }}
       {{- $termTitle := $name }}
       {{- $termPages := slice }}
       {{- with $termPage }}
@@ -108,7 +108,7 @@
         {{- $name := $term.Name }}
         {{- $count := $term.Count }}
         {{- $termPage := or .Page (site.GetPage (printf "/%s/%s" $type $name)) (site.GetPage (printf "/%s/%s" $type ($name | urlize))) }}
-        {{- $termLink := printf "/%s/%s/" $type ($name | urlize) | relURL }}
+        {{- $termLink := printf "%s/%s/" $type ($name | urlize) | relURL }}
         {{- $termTitle := $name }}
         {{- with $termPage }}
           {{- $termLink = .RelPermalink }}
