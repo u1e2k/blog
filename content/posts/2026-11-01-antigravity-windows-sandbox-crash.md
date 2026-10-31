@@ -8,7 +8,7 @@ image: assets/images/12.jpg
 description: "Windows 版 Antigravity で、エージェントがターミナルコマンドを実行するたびに言語サーバーがアクセス違反 (0xc0000005) でクラッシュする問題の再現手順・スタックトレース・原因分析・回避策のまとめ。"
 featured: false
 hidden: false
-date: 2026-11-01
+date: 2026-11-01T03:40:00+09:00
 slug: "antigravity-windows-sandbox-crash"
 cover:
   image: "assets/images/12.jpg"
